@@ -106,7 +106,7 @@
     <script>
       $(document).foundation();
       $(document).ready(function() {
-	var $sigArea = $("#signature").jSignature({UndoButton:true});
+	var $sigArea = $("#signature").jSignature({UndoButton:false});
         $("#reset").click(function() {
           $sigArea.jSignature('reset');
         });
