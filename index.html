@@ -6,6 +6,7 @@
     <title>Curliceu | Jewelry You Draw</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/app.css" />
+    <link type="text/css" id="snipcart-theme" href="https://app.snipcart.com/themes/base/snipcart.css" rel="stylesheet" />
     <link href='http://fonts.googleapis.com/css?family=Rochester' rel='stylesheet' type='text/css'>
     <script src="js/vendor/modernizr.js"></script>
   </head>
@@ -29,10 +30,19 @@
       </div>
       <div class="large-4 medium-4 small-4 columns" style="text-align:center">
         <a href="#" class="tiny round button" id="buy">Buy It!</a>
+<form action="" id="payment-form" method="POST">
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_VpNFyzG0XC2rL0pV1QlDvQ3rCUSea"
+    data-image="img/curliceu_logo.png"
+    data-name=""
+    data-description="Custom necklace ($25)"
+    data-amount="2500">
+  </script>
+</form>
       </div>
     </div>
     </div>
-
 <div id="output"></div>
 
     <div class="row">
@@ -76,14 +86,14 @@
       </div>
     </div>
     <script src="js/vendor/jquery.js"></script>
+    <script type="text/javascript" id="snipcart" 
+            src="https://app.snipcart.com/scripts/snipcart.js"
+            data-api-key="OTBmZTVjYTgtZGMxMy00NzFmLTk1ODEtNDc3ZTdjOTMxMjU2"></script>
     <script src="js/foundation.min.js"></script>
-    <!-- you load jquery somewhere above here ... -->
 	<!--[if lt IE 9]>
 	<script type="text/javascript" src="js/vendor/flashcanvas.js"></script>
 	<![endif]-->
 	<script src="js/vendor/jSignature.min.js"></script>
-	<script>
-	</script>
     <script src="js/app.js"></script>
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
     <script>
