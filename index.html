@@ -50,8 +50,12 @@
       </div>
     </div>
     </div>
-<div id="output"></div>
-
+    
+    <div class="row" id="output" style="display:none">
+      <div class="large-12 columns">
+        <textarea rows="10" id="svg"></textarea>
+      </div>
+   </div>
     <div class="row">
       <div class="large-12 columns">
        <h2>Examples</h2> 
@@ -109,6 +113,12 @@
 	var $sigArea = $("#signature").jSignature({UndoButton:false});
         $("#reset").click(function() {
           $sigArea.jSignature('reset');
+          $("#output").hide();
+        });
+        $("#options").click(function() {
+          var datapair = $sigArea.jSignature("getData", "svg");  
+	  $("#svg").val(datapair[1]);
+          $("#output").show();
         });
       });
     </script>
