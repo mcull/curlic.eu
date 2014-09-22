@@ -50,11 +50,12 @@
       </div>
     </div>
     </div>
-    
     <div class="row" id="output" style="display:none">
       <div class="large-12 columns">
         <textarea rows="10" id="svg"></textarea>
       </div>
+      <div class="large-12 columns" id="pic">
+      </div> 
    </div>
     <div class="row">
       <div class="large-12 columns">
@@ -119,6 +120,12 @@
           var datapair = $sigArea.jSignature("getData", "svg");  
 	  $("#svg").val(datapair[1]);
           $("#output").show();
+
+        var data = $sigArea.jSignature("getData"); 
+	var i = new Image();
+	i.src =  data;
+	$(i).appendTo($("#pic")); // append the image (SVG) to DOM.
+
         });
       });
     </script>
