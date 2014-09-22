@@ -17,16 +17,18 @@
       </div>
     </div>
     
-    <div class="row">
-      <div class="large-12 columns panel">
-        <h4><small>Sign your name or draw something below!</small></h4>
+    <div class="row" >
+       <div class="large-12 columns" id="pic" style="display:none;">
+      </div> 
+      <div class="large-12 columns panel" id="drawPane">
+        <h4><small>Write or draw something below!</small></h4>
         <div id="signature" style="border: solid 1px #ccc"></div>
       </div>
       <div class="large-4 medium-4 small-4 columns" style="text-align:center">      
       <a href="javascript:void();" class="tiny round button" id="reset">Reset</a>
       </div>
       <div class="large-4 medium-4 small-4 columns" style="text-align:center">  
-      <a href="#" class="tiny round button" id="options">Options</a>
+      <a href="#" class="tiny round button" id="preview">Preview</a>
       </div>
       <div class="large-4 medium-4 small-4 columns" style="text-align:center">
         <a href="#" class="tiny round button snipcart-add-item" 
@@ -37,16 +39,6 @@
                     data-item-url="http://curlic.eu" 
                     data-item-description="Custom Necklace"
                     id="buy">Buy It!</a>
-	<!-- <form action="" id="payment-form" method="POST">
-  <script
-    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="pk_VpNFyzG0XC2rL0pV1QlDvQ3rCUSea"
-    data-image="img/curliceu_logo.png"
-    data-name=""
-    data-description="Custom necklace ($25)"
-    data-amount="2500">
-  </script>
-</form> -->
       </div>
     </div>
     </div>
@@ -54,8 +46,7 @@
       <div class="large-12 columns">
         <textarea rows="10" id="svg"></textarea>
       </div>
-      <div class="large-12 columns" id="pic">
-      </div> 
+     
    </div>
     <div class="row">
       <div class="large-12 columns">
@@ -115,19 +106,55 @@
         $("#reset").click(function() {
           $sigArea.jSignature('reset');
           $("#output").hide();
+          $("#drawPane").show();
+          $("#preview").show();
+          $("#pic").hide();
         });
-        $("#options").click(function() {
+        $("#preview").click(function() {
+
           var datapair = $sigArea.jSignature("getData", "svg");  
-	  $("#svg").val(datapair[1]);
+          $("#svg").val(datapair[1]);
           $("#output").show();
+          $("#drawPane").hide();
+          $("#preview").hide();
+          var img = new Image();
+          var src = "data:" + datapair[0] + "," + datapair[1];
 
-        var data = $sigArea.jSignature("getData"); 
-	var i = new Image();
-	i.src =  data;
-	$(i).appendTo($("#pic")); // append the image (SVG) to DOM.
+          var svg = $.parseXML( datapair[1] );
+          console.log(datapair[1] );
+          var height = parseInt($(svg).find("svg").attr('height'));
+          var width = parseInt($(svg).find("svg").attr('width'));
+
+          var path = $(svg).find("path");
+          $(path).attr("transform","translate(20,20)");
+          $(path).attr("stroke-opacity",".5");
+          $(path).attr('stroke','#00FF00');
+          $(path).attr('stroke-width','8');
+          $(svg).find("svg").attr('width',width+40);
+          $(svg).find("svg").attr('height',height+40);
+          var src = "data:" + datapair[0] + "," + xmlToString(svg);;
+          img.src = src;
+          console.log(xmlToString(svg));
+          $("#pic").html(img);
+          $("#pic").show();
 
         });
+        
       });
+
+function xmlToString(xmlData) { 
+
+    var xmlString;
+    //IE
+    if (window.ActiveXObject){
+        xmlString = xmlData.xml;
+    }
+    // code for Mozilla, Firefox, Opera, etc.
+    else{
+        xmlString = (new XMLSerializer()).serializeToString(xmlData);
+    }
+    return xmlString;
+} 
     </script>
   </body>
 </html>
