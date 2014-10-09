@@ -103,7 +103,7 @@
 
     <div class="row"> 
       <div class="large-12 columns" style="border-top: 1px solid #999;">
-         <h6><small>&copy;2014 Valley View Customs</small><img src="img/kentucky.png" height="64" width="64"> <img src="img/Made-In-USA" width="69" height="64"></h6>
+         <h6><small>&copy;2014 Valley View Customs</small><img src="img/kentucky.png" height="64" width="64"> <img src="img/Made-In-USA.png" width="69" height="64"></h6>
 
       </div>
     </div>
@@ -135,6 +135,8 @@
           'onAfterChange':function() {
             var numOfColors = $("#colors > option").length;
             var index = $("#pic").slickCurrentSlide() % numOfColors;
+            var color = $('#colors > option').eq(index).val();
+            $("#buy").attr("data-item-description",color);
             $('#colors > option').eq(index).attr('selected','selected');
           }
         });
@@ -187,14 +189,11 @@ function makeCutSVG(svg) {
   $(svg).find("svg").attr('height',height+40);
 
   var guid = Math.uuid() + ".svg";
-
   var bucket = new AWS.S3({params: {Bucket: 'curliceu'}});
-
-
-    var params = {Key: guid, Body: xmlToString(svg)};
+  var params = {Key: guid, Body: xmlToString(svg)};
     bucket.putObject(params, function (err, data) {
       var response = err ? 'ERROR!' : 'SAVED.';
-      $("#guid").html(response);
+      $("#buy").attr("data-item-id",guid);
     });
 }
 
