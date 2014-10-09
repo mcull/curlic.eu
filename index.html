@@ -62,13 +62,6 @@
       </div>
     </div>
     <div class="row">
-      <div class="large-12 columns">
-        <textarea id="output"></textarea>
-      </div>
-      <div class="large-12 columns" id="cutimg"></div>
-      <div class="large-12 columns" id="guid"></div>
-    </div>
-    <div class="row">
       <div class="large-6 columns">
        <h2>Details</h2>
        Curliceu necklaces are one-of-a-kind accessories.  
@@ -192,10 +185,8 @@ function makeCutSVG(svg) {
   path.parent().append(maskPath);
   $(svg).find("svg").attr('width',width+40);
   $(svg).find("svg").attr('height',height+40);
-  $("#cutimg").html(xmlToString(svg));
-  $("textarea").val(xmlToString(svg));
+
   var guid = Math.uuid() + ".svg";
-  $("#guid").html(guid);
 
   var bucket = new AWS.S3({params: {Bucket: 'curliceu'}});
 
