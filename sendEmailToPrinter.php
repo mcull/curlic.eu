@@ -12,7 +12,7 @@ $result = $client->sendEmail(array(
     'Source' => 'admin@curlic.eu',
     // Destination is required
     'Destination' => array(
-        'ToAddresses' => array('marc.cull@gmail.com')//add to this list later
+        'ToAddresses' => array('sales@curlic.eu')//add to this list later
     ),
     // Message is required
     'Message' => array(
