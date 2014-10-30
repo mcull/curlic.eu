@@ -100,7 +100,10 @@
         <img src="http://www.silverpromo.com/bmz_cache/8/89020fff0c845deedc915b52d52af372.image.300x300.jpg">
       </div>
     </div>
-
+    <div class="row">
+      <div class="large-12 columns" id="bitmap">
+      </div>
+    </div>
     <div class="row"> 
       <div class="large-12 columns" style="border-top: 1px solid #999;">
          <h6><small>&copy;2014 Valley View Customs</small><img src="img/kentucky.png" height="64" width="64"> <img src="img/Made-In-USA.png" width="69" height="64"></h6><a id="guidOnPage"></a>
@@ -163,7 +166,6 @@
           $("#drawPane").hide();
           $("#preview").hide();
           processPreview();
-          //processPreview();
           $("#colors").show();
 
         });
@@ -181,13 +183,17 @@ function makeCutSVG(svg) {
   var path = $(svg).find("path");
   $(path).attr("transform","translate(20,20)");
   var maskPath = path.clone();
-  $(path).attr('stroke','#FF0000');
+  $(path).attr('stroke','#00FF00');
   $(path).attr('stroke-width','12');
   $(maskPath).attr('stroke','#FFFFFF');
   $(maskPath).attr('stroke-width','11');
-  path.parent().append(maskPath);
   $(svg).find("svg").attr('width',width+40);
   $(svg).find("svg").attr('height',height+40);
+  $("#bitmap").html("<img src='/svg2png.php?svg=" + encodeURIComponent(xmlToString(svg)) + "'>");
+  $(path).attr('stroke','#FF0000');
+  path.parent().append(maskPath);
+  $("#bitmap").append("<img src='/svg2png.php?svg=" + encodeURIComponent(xmlToString(svg)) + "'>");
+
 
   guid = Math.uuid();
   var guidFile = guid + ".svg";
@@ -199,6 +205,9 @@ function makeCutSVG(svg) {
       $("#guidOnPage").attr("href",guidUrl);
       $("#guidOnPage").html("cut file");
     });
+
+  
+
 }
 
 function processPreview() {
