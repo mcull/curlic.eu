@@ -20,16 +20,15 @@
     </div>
     
     <div class="row" >
-       <div class="large-12 columns" id="pic" style="display:none;text-align:center;"></div> 
+       <div class="large-12 columns panel" id="pic" style="display:none;text-align:center;background-image:url('img/swirl_pattern.png')"></div> 
       <div class="large-12 columns panel" id="drawPane">
         <h4><small>Write or draw something below!</small></h4>
-        <div id="signature" style="border: solid 1px #ccc"></div>
+        <div id="signature" style="border: solid 1px #ccc;background-image:url('img/swirl_pattern.png')"></div>
       </div>
-      <div class="large-4 medium-4 small-4 columns" style="text-align:center">      
+      <div class="large-4 medium-4 small-4 columns" style="text-align:center;">      
         <a href="javascript:void();" class="tiny round button" id="reset">Reset</a>
       </div>
       <div class="large-4 medium-4 small-4 columns" style="text-align:center">  
-        <a href="#" class="tiny round button" id="preview">Preview</a>
         <select style="display:none" id="colors" class="small">
           <option value="red" rel-opacity="1" rel-color="FF0000">Red</option>
           <option value="white" rel-opacity="1" rel-color="FFFFFF">White</option>
@@ -50,7 +49,8 @@
 
         </div>
         <div class="large-4 medium-4 small-4 columns" style="text-align:center">
-          <a href="#" class="tiny round button snipcart-add-item" 
+          <a href="javascript:void(0);" class="tiny round button" id="preview">Next &raquo;</a>
+          <a href="javascript:void(0)" class="tiny round button snipcart-add-item" 
                       data-item-id="1" 
                       data-item-name="Curlicue Signature Necklace" 
                       data-item-price="50.00" 
@@ -154,6 +154,7 @@
         $("#reset").click(function() {
           $("#drawPane").show();
           $("#preview").show();
+          $("#buy").hide();
           $("#pic").hide();
           $("#colors").hide();
           $("#pic").unslick().empty();
@@ -164,6 +165,7 @@
         $("#preview").click(function() {
           $("#drawPane").hide();
           $("#preview").hide();
+          $("#buy").show();
           processPreview();
           $("#colors").show();
 
@@ -212,6 +214,7 @@ function makeCutSVG(svg) {
 
 function processPreview() {
   $("#pic").show();
+
   var svg = $.parseXML(sigArea.jSignature("getData", "svg")[1]);
   
   var color;

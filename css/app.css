@@ -7,6 +7,7 @@ body {
 
 #title { font-family: 'Rochester', cursive;}
 #tm {font-size:8px;}
+#buy {display:none;}
 
 .photo {
   text-align:center;
