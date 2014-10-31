@@ -3,6 +3,14 @@ require 'aws/aws-autoloader.php';
 require 'credentials.php';
 
 $guid = $_REQUEST['guid'];
+$material = $_REQUEST['material'];
+$html = file_get_contents("email_templates/print_order.html");
+
+$date = new DateTime('now', new DateTimeZone('America/New_York'));
+
+$html = str_replace("[[date]]", $date->format("F jS, Y") , $html);
+$html = str_replace("[[guid]]", $guid , $html);
+$html = str_replace("[[material]]", $material , $html);
 
 use Aws\Ses\SesClient;
 
@@ -24,7 +32,7 @@ $result = $client->sendEmail(array(
         // Subject is required
         'Subject' => array(
             // Data is required
-            'Data' => 'Curliceu print job ' . $guid
+            'Data' => $guid
         ),
         // Body is required
         'Body' => array(
@@ -34,7 +42,7 @@ $result = $client->sendEmail(array(
             ),
             'Html' => array(
                 // Data is required
-                'Data' => '<html><head></head><body><b>HTML</b><i> Email</i> <u>test</u></body></html>'
+                'Data' => $html
             ),
         ),
     ),
