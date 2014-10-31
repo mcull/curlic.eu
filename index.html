@@ -251,8 +251,11 @@ function processPreview() {
     $(svg).find("svg").attr('height',height+40);
     var carouselItem = $("<div>");
     var img = new Image();
-    var src = "data:image/svg+xml," + xmlToString(svg);
+    var src = "data:image/svg+xml;base64," + btoa(xmlToString(svg));
     img.src = src;
+    $( "#emailConfirm" ).show();
+    $( "#emailConfirm" ).text(src);
+    console.log(src);
     $(img).attr('style','margin:0 auto');
     $(img).attr('height',height);
     $(img).attr('width',width);
