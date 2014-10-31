@@ -105,7 +105,7 @@
     </div>
     <div class="row"> 
       <div class="large-12 columns" style="border-top: 1px solid #999;">
-         <h6><small>&copy;2014 Valley View Customs</small><img src="img/kentucky.png" height="64" width="64"> <img src="img/Made-In-USA.png" width="69" height="64"></h6><a href="javascript:void(0);" id="emailTrigger" style="display:none;">Email cut file</a>
+         <h6><small>&copy;2014 Valley View Customs</small><img src="img/kentucky.png" height="64" width="64"> <img src="img/Made-In-USA.png" width="69" height="64"></h6><a href="javascript:void(0);" id="emailTrigger" style="display:none;">Trigger Email </a><span id="emailConfirm" style="display:none;color:red">Email sent!</span>
 
       </div>
     </div>
@@ -182,7 +182,7 @@ function makeCutSVG(svg) {
   var path = $(svg).find("path");
   $(path).attr("transform","translate(20,20)");
   var maskPath = path.clone();
-  $(path).attr('stroke','#FF0000');
+  $(path).attr('stroke','#00FF00');
   $(path).attr('stroke-width','12');
   $(maskPath).attr('stroke','#FFFFFF');
   $(maskPath).attr('stroke-width','11');
@@ -199,7 +199,10 @@ function makeCutSVG(svg) {
       //now expose a button that'll trigger the email
       $("#emailTrigger").show();
       $("#emailTrigger").click(function() {
-        alert(guid);
+        var color = $("#colors option:selected").val();
+        $.get( "sendEmailToPrinter.php?guid=" + guid + "&material=" + color, function( data ) {
+          $( "#emailConfirm" ).show();
+        });
       })
 
     });
