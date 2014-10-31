@@ -1,9 +1,14 @@
 <?php
+require 'aws/aws-autoloader.php';
+require 'credentials.php';
+
+$guid = $_REQUEST['guid'];
 
 use Aws\Ses\SesClient;
 
 $client = SesClient::factory(array(
-    'profile' => '~/.aws/credentials',
+    'key' => $key,
+    'secret' => $secret,
     'region'  => 'us-east-1'
 ));
 
@@ -12,20 +17,20 @@ $result = $client->sendEmail(array(
     'Source' => 'admin@curlic.eu',
     // Destination is required
     'Destination' => array(
-        'ToAddresses' => array('sales@curlic.eu')//add to this list later
+        'ToAddresses' => array('printing@curlic.eu')//add to this list later
     ),
     // Message is required
     'Message' => array(
         // Subject is required
         'Subject' => array(
             // Data is required
-            'Data' => 'New Curliceu Order!'
+            'Data' => 'Curliceu print job ' . $guid
         ),
         // Body is required
         'Body' => array(
             'Text' => array(
                 // Data is required
-                'Data' => 'Testing sending an email from Curlic.eu'
+                'Data' => 'Curliceu order ready to print!'
             ),
             'Html' => array(
                 // Data is required
@@ -34,7 +39,7 @@ $result = $client->sendEmail(array(
         ),
     ),
     'ReplyToAddresses' => array('admin@curlic.eu'),
-    'ReturnPath' => 'marc.cull@gmail.com',
+    'ReturnPath' => 'admin@curlic.eu',
 ));
 
 ?>
