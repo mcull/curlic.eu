@@ -20,7 +20,12 @@
     </div>
     
     <div class="row" >
-       <div class="large-12 columns panel" id="pic" style="display:none;text-align:center;background-image:url('img/swirl_pattern.png')"></div> 
+       <div class="large-12 columns panel" id="pic" style="display:none;">
+        <h4><small>Now choose material and color!  </small></h4>
+        <div id="previewPane" style="text-align:center;background-image:url('img/swirl_pattern.png');border:1px solid #cccccc;">
+
+        </div>
+       </div> 
       <div class="large-12 columns panel" id="drawPane">
         <h4><small>Write or draw something below!</small></h4>
         <div id="signature" style="border: solid 1px #ccc;background-image:url('img/swirl_pattern.png')"></div>
@@ -141,12 +146,12 @@
     <script>
     var guid;
       function initSlick() {
-        $('#pic').slick({
+        $('#previewPane').slick({
           'centerMode':true,
           'dots':false,
           'onAfterChange':function() {
             var numOfColors = $("#colors > option").length;
-            var index = $("#pic").slickCurrentSlide() % numOfColors;
+            var index = $("#previewPane").slickCurrentSlide() % numOfColors;
             var color = $('#colors > option').eq(index).val();
             $("#buy").attr("data-item-description",color + " - " + guid);
             $('#colors > option').eq(index).attr('selected','selected');
@@ -166,7 +171,7 @@
           $("#buy").hide();
           $("#pic").hide();
           $("#colors").hide();
-          $("#pic").unslick().empty();
+          $("#previewPane").unslick().empty();
           initSlick();
           sigArea.jSignature('reset');
         });
@@ -181,7 +186,7 @@
         });
 
         $("#colors").change(function() {  
-          $("#pic").slickGoTo($("#colors")[0].selectedIndex);
+          $("#previewPane").slickGoTo($("#colors")[0].selectedIndex);
         });
         
       });
@@ -235,7 +240,6 @@ function processPreview() {
 
   //$("#pic").unslick();
   var count = $("select option").length;
-  console.log($("#pic > div").length);
   $("select option").each(function() {
 
     var colorSvg = svg;
@@ -259,10 +263,10 @@ function processPreview() {
     $(img).attr('height',height + 40);
     $(img).attr('width',width + 40);
     carouselItem.append(img);
-    $("#pic").slickAdd(carouselItem);
+    $("#previewPane").slickAdd(carouselItem);
   });
   
-  $("#pic").slickGoTo(0);
+  $("#previewPane").slickGoTo(0);
   
   
 }
