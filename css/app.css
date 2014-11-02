@@ -21,4 +21,5 @@ body {
   -moz-border-radius: 300px;
   border-radius: 300px;
   border:2px dotted rgba(128,128,128,.25);
+  height:150px;
 }
