@@ -211,6 +211,10 @@ function makeCutSVG(svg) {
   var params = {Key: guidFile, Body: xmlToString(svg)};
     bucket.putObject(params, function (err, data) {
       var response = err ? 'ERROR!' : 'SAVED.';
+      if (response == err) {
+	console.log(err);
+      } else {
+        console.log(data);
       var guidUrl = " https://s3.amazonaws.com/curliceu/" + guidFile;
       //now expose a button that'll trigger the email
       $("#emailTrigger").show();
@@ -220,6 +224,7 @@ function makeCutSVG(svg) {
           $( "#emailConfirm" ).show();
         });
       })
+      }
 
     });
 }
