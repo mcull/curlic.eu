@@ -44,11 +44,10 @@
           <option value="grey" rel-opacity=".5" rel-color="666666">Smoke Grey</option>
           <option value="yellow" rel-opacity=".5" rel-color="FFFF00">Yellow</option>
           <option value="caribbean" rel-opacity=".5" rel-color="66FFCC">Caribbean Blue</option>
-          <option value="gold" rel-opacity="1" rel-pattern="gold">Gold Glitter</option>
-          <option value="frosted-pink" rel-opacity=".8" rel-color="FF66FF">Frosted Pink</option>
-          <option value="neon-pink" rel-opacity=".5" rel-color="FF33CC">Neon Pink</option>
-          <option value="poppy" rel-opacity=".5" rel-color="FFCCFF">Poppy</option>
-          <option value="bubble-gum" rel-opacity=".5" rel-color="FF99CC">Bubble Gum</option>
+          <option value="gold" rel-opacity=".8" rel-pattern="gold_glitter">Gold Glitter</option>
+          <option value="bloodwood" rel-opacity="1" rel-pattern="bloodwood">Bloodwood</option>
+          <option value="rosewood" rel-opacity="1" rel-pattern="rosewood">Rosewood</option>
+          <option value="pink" rel-opacity=".75" rel-color="FFCCFF">Pink</option>
           <option value="purple" rel-opacity=".5" rel-color="CC66FF">Purple</option>
         </select> 
 
@@ -191,7 +190,7 @@
         
       });
 
-function makeCutSVG(svg) {
+function makeCutSVG(svg, callback) {
   
   var height = parseInt($(svg).find("svg").attr('height'));
   var width = parseInt($(svg).find("svg").attr('width'));
@@ -215,6 +214,9 @@ function makeCutSVG(svg) {
         console.log(err);
       } else {
         console.log(data);
+        if (callback) {
+          callback();
+        }
         var guidUrl = " https://s3.amazonaws.com/curliceu/" + guidFile;
         //now expose a button that'll trigger the email
         $("#emailTrigger").append(": " + guid);
@@ -246,63 +248,45 @@ function processPreview() {
   var opacity;
   var height = parseInt($(svg).find("svg").attr('height'));
   var width = parseInt($(svg).find("svg").attr('width'));
-  $(svg).find("svg").attr("xmlns:xlink","http://www.w3.org/1999/xlink");
-  
-  var defs = SVG('defs');
-  var image = $(SVG('image'))
-    .attr('xlink:href','img/gold_glitter.png')
-    .attr('x','0')
-    .attr('y','0')
-    .attr('width','100')
-    .attr('height','100');
+  makeCutSVG(svg, function() { //force this to wait on successful cut upload
+    var path = $(svg).find("path");
 
-  var patternNode = $(SVG('pattern'))
-        .attr('id','gold')
-        .attr('width','100')
-        .attr('height','100');
-  $(image).appendTo($(patternNode));
-  $(patternNode).appendTo($(defs));
-  $(defs).prependTo($(svg).find("svg"));
-  svg.getElementById('gold').setAttribute('patternUnits','userSpaceOnUse');
-  makeCutSVG(svg);
-
-  //$("#pic").unslick();
-  var count = $("select option").length;
-  $("select option").each(function() {
-
-    var colorSvg = svg;
-    color = $(this).attr("rel-color");
-    pattern = $(this).attr("rel-pattern");
-    opacity = $(this).attr("rel-opacity");
-    var path = $(colorSvg).find("path");
     $(path).attr("transform","translate(20,20)");
-    $(path).attr("stroke-opacity",opacity);
-
+    
     $(path).attr('stroke-width','12');
     $(svg).find("svg").attr('width',width+40);
     $(svg).find("svg").attr('height',height+40);
-    if (color && color.length > 0) {
-      $(path).attr('stroke','#' + color);
-    } else if (pattern && pattern.length > 0) {
-      $(path).attr("stroke","url(#" + pattern + ")");
-    }
-    var carouselItem = $("<div>");
-    var img = new Image();
-    //var src = "data:image/svg+xml;base64," + btoa(xmlToString(svg));
-     var src = "data:image/svg+xml," + xmlToString(svg);
 
-    img.src = src;
-    //$( "#emailConfirm" ).show();
-    //$( "#emailConfirm" ).text(src);
-    //console.log(src); 
-    $(img).attr('style','margin:0 auto');
-    $(img).attr('height',height + 40);
-    $(img).attr('width',width + 40);
-    carouselItem.append(img);
-    $("#previewPane").slickAdd(carouselItem);
+    var count = $("select option").length;
+    $("select option").each(function() {
+
+      color = $(this).attr("rel-color");
+      pattern = $(this).attr("rel-pattern");
+      opacity = $(this).attr("rel-opacity");
+      $(path).attr("stroke-opacity",opacity);
+      
+      var src = null;
+      if (color && color.length > 0) {
+        $(path).attr('stroke','#' + color);
+        src = "data:image/svg+xml;base64," + btoa(xmlToString(svg));
+      } else if (pattern && pattern.length > 0) {
+        $(path).attr("stroke","url(#" + pattern + ")");
+        src = "http://curlic.eu/svg2png_mask.php?id=" + guid + "&m=" + pattern;
+      }
+      var carouselItem = $("<div>");
+      var img = new Image();
+
+      img.src = src;
+
+      $(img).attr('style','margin:0 auto');
+      $(img).attr('height',height + 40);
+      $(img).attr('width',width + 40);
+      carouselItem.append(img);
+      $("#previewPane").slickAdd(carouselItem);
+    });
+    
+    $("#previewPane").slickGoTo(0);
   });
-  
-  $("#previewPane").slickGoTo(0);
   
   
 }
