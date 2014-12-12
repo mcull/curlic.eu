@@ -15,7 +15,7 @@ $dimensions = $r->getDimensions();
 $s = new CairoImageSurface(CairoFormat::ARGB32, $dimensions['width'], $dimensions['height']);
 $c = new CairoContext($s);
 $r->render($c);
-$filename = "/tmp/" . $id . ".php";
+$filename = "/tmp/" . uniqid($id) . ".php";
 $s->writeToPng($filename);
 echo file_get_contents($filename);
 unlink($filename);

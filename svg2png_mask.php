@@ -1,9 +1,7 @@
 <?php 
 header('Content-Type: image/png');
-$svg = file_get_contents("https://s3.amazonaws.com/curliceu/" . $_REQUEST["id"] . ".svg");
 
-$svg = str_replace("00FF00","FFFFFF",$svg);
-//$svg = str_replace("00FF00","00FFFF",$svg);
+$svg = file_get_contents("https://s3.amazonaws.com/curliceu/" . $_REQUEST["id"] . ".svg");
 
 $png =  file_get_contents('http://curlic.eu/svg2png.php?svg=' . urlencode($svg));
 $mask = new Imagick();
