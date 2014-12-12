@@ -44,7 +44,7 @@
           <option value="grey" rel-opacity=".5" rel-color="666666">Smoke Grey</option>
           <option value="yellow" rel-opacity=".5" rel-color="FFFF00">Yellow</option>
           <option value="caribbean" rel-opacity=".5" rel-color="66FFCC">Caribbean Blue</option>
-          <option value="gold" rel-opacity=".5" rel-color="CC9900">Gold Glitter</option>
+          <option value="gold" rel-opacity="1" rel-pattern="gold">Gold Glitter</option>
           <option value="frosted-pink" rel-opacity=".8" rel-color="FF66FF">Frosted Pink</option>
           <option value="neon-pink" rel-opacity=".5" rel-color="FF33CC">Neon Pink</option>
           <option value="poppy" rel-opacity=".5" rel-color="FFCCFF">Poppy</option>
@@ -230,6 +230,10 @@ function makeCutSVG(svg) {
     });
 }
 
+function SVG(tag)
+{
+   return document.createElementNS('http://www.w3.org/2000/svg', tag);
+}
 
 
 function processPreview() {
@@ -238,10 +242,28 @@ function processPreview() {
   var svg = $.parseXML(sigArea.jSignature("getData", "svg")[1]);
   
   var color;
+  var pattern;
   var opacity;
   var height = parseInt($(svg).find("svg").attr('height'));
   var width = parseInt($(svg).find("svg").attr('width'));
+  $(svg).find("svg").attr("xmlns:xlink","http://www.w3.org/1999/xlink");
   
+  var defs = SVG('defs');
+  var image = $(SVG('image'))
+    .attr('xlink:href','img/gold_glitter.png')
+    .attr('x','0')
+    .attr('y','0')
+    .attr('width','100')
+    .attr('height','100');
+
+  var patternNode = $(SVG('pattern'))
+        .attr('id','gold')
+        .attr('width','100')
+        .attr('height','100');
+  $(image).appendTo($(patternNode));
+  $(patternNode).appendTo($(defs));
+  $(defs).prependTo($(svg).find("svg"));
+  svg.getElementById('gold').setAttribute('patternUnits','userSpaceOnUse');
   makeCutSVG(svg);
 
   //$("#pic").unslick();
@@ -250,17 +272,25 @@ function processPreview() {
 
     var colorSvg = svg;
     color = $(this).attr("rel-color");
+    pattern = $(this).attr("rel-pattern");
     opacity = $(this).attr("rel-opacity");
     var path = $(colorSvg).find("path");
     $(path).attr("transform","translate(20,20)");
     $(path).attr("stroke-opacity",opacity);
-    $(path).attr('stroke','#' + color);
+
     $(path).attr('stroke-width','12');
     $(svg).find("svg").attr('width',width+40);
     $(svg).find("svg").attr('height',height+40);
+    if (color && color.length > 0) {
+      $(path).attr('stroke','#' + color);
+    } else if (pattern && pattern.length > 0) {
+      $(path).attr("stroke","url(#" + pattern + ")");
+    }
     var carouselItem = $("<div>");
     var img = new Image();
-    var src = "data:image/svg+xml;base64," + btoa(xmlToString(svg));
+    //var src = "data:image/svg+xml;base64," + btoa(xmlToString(svg));
+     var src = "data:image/svg+xml," + xmlToString(svg);
+
     img.src = src;
     //$( "#emailConfirm" ).show();
     //$( "#emailConfirm" ).text(src);
@@ -268,7 +298,10 @@ function processPreview() {
     $(img).attr('style','margin:0 auto');
     $(img).attr('height',height + 40);
     $(img).attr('width',width + 40);
-    carouselItem.append(img);
+    //carouselItem.append(img);
+    $(svg).find("svg").appendTo(carouselItem);
+    console.log($(svg).find("svg"));
+    $("#bitmap").append(carouselItem);
     $("#previewPane").slickAdd(carouselItem);
   });
   
