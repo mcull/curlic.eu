@@ -298,10 +298,7 @@ function processPreview() {
     $(img).attr('style','margin:0 auto');
     $(img).attr('height',height + 40);
     $(img).attr('width',width + 40);
-    //carouselItem.append(img);
-    $(svg).find("svg").appendTo(carouselItem);
-    console.log($(svg).find("svg"));
-    $("#bitmap").append(carouselItem);
+    carouselItem.append(img);
     $("#previewPane").slickAdd(carouselItem);
   });
   
