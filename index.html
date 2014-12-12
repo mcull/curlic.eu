@@ -13,23 +13,18 @@
     <script src="js/vendor/modernizr.js"></script>
   </head>
   <body>
-   <div class="row"> 
-      <div class="large-12 columns">
-        <h1><span id="title">Curliceu</span><span id="tm">&#0153;</span> <span id="subtitle"><small style="color:rgba(98, 63, 112,.5);font-family:Yellowtail">Jewelry You Draw!</small></span></h1>
-      </div>
-     
-    </div>
     
     <div class="row" >
        <div class="large-12 columns panel" id="pic" style="display:none;">
         <h4 style="font-family:'Shadows Into Light Two';"><i class="fa fa-magic"></i> <i>Now choose material and color...  </i></h4>
         <div id="previewPane" class="drawArea" style="text-align:center;background-image:url('img/swirl_pattern.png');border:1px solid #cccccc;">
-
         </div>
        </div> 
       <div class="large-12 columns panel" id="drawPane">
+
         <h4 style="font-family:'Shadows Into Light Two';"><i class="fa fa-paint-brush"></i> <i>Write or draw something below...</i></h4>
-        <div id="signature" class="drawArea" style="border: solid 1px #ccc;background-image:url('img/swirl_pattern.png')"></div>
+        <div id="signature" class="drawArea" style="border: solid 1px #ccc;background-image:url('img/swirl_pattern.png');"></div>
+        <div style="display:table;margin:0 auto;width:85%;border-bottom:1px solid #999999;border-left:1px solid #999999;border-right:1px solid #999999;text-align:center;position:relative;top:-10px;"><div style="padding-right:20px;padding-left:20px;width:100px;margin:0 auto;text-align:center;position:relative;bottom:-14px;" id="measurement"> about 3" </div></div>
       </div>
       <div class="large-4 medium-4 small-4 columns" style="text-align:center;">      
         <a href="javascript:void();" class="tiny round button" id="reset"><i class="fa fa-refresh"></i> Reset</a>
@@ -68,7 +63,7 @@
     <div class="row">
       <div class="large-6 columns">
        <h2 style="font-family:'Shadows Into Light Two';">Details</h2>
-       Curliceu necklaces are one-of-a-kind accessories.  
+       <span class="brand">Curliceu</span><span id="tm">&#0153;</span> necklaces are one-of-a-kind accessories.  
        <ul>
         <li>Measures approx 3" wide by 1.5" tall</li>
         <li>Custom acryllic pendant hangs on 18" sterling silver chain</li>
@@ -146,6 +141,8 @@
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
     <script>
     var guid;
+    var sigArea;
+    var lineWidth = 10;
       function initSlick() {
         $('#previewPane').slick({
           'centerMode':true,
@@ -159,21 +156,22 @@
           }
         });
       } 
-
       $(document).foundation();
-      var sigArea;
+      
       $(document).ready(function() {
-        sigArea = $("#signature").jSignature({UndoButton:false,lineWidth:6});
+        
+        
+        lineWidth = (.8 * $("#signature").width()/100)*3; 
+
+        sigArea = $("#signature").jSignature({UndoButton:false,lineWidth:lineWidth});
         initSlick();
 
         $('.drawArea').blurjs({
           source: '.drawArea',
-
           radius: 0,
           overlay: 'rgba(232,230,224,0.4)'
 
         });
-  
 
         $("#reset").click(function() {
           $("#drawPane").show();
@@ -205,15 +203,18 @@ function makeCutSVG(svg, callback) {
   
   var height = parseInt($(svg).find("svg").attr('height'));
   var width = parseInt($(svg).find("svg").attr('width'));
+  //scale the stroke so it ends at 4mm when the piece gets scaled down to 3"
+  var stroke = 8;
+
   var path = $(svg).find("path");
   $(path).attr("transform","translate(20,20)");
-  var maskPath = path.clone();
   $(path).attr('stroke','#00FF00');
-  $(path).attr('stroke-width','10');
-  $(maskPath).attr('stroke','#FFFFFF');
-  $(maskPath).attr('stroke-width','11');
-  $(svg).find("svg").attr('width',width+40);
-  $(svg).find("svg").attr('height',height+40);
+  $(path).attr('stroke-width', stroke + 'mm');
+  //scale it to 750mm wide
+ 
+
+  $(svg).find("svg").attr('width',width + 40 + "mm");
+  $(svg).find("svg").attr('height',height+40+ "mm");
 
   guid = Math.uuid();
   var guidFile = guid + ".svg";
@@ -264,9 +265,9 @@ function processPreview() {
 
     $(path).attr("transform","translate(20,20)");
     
-    $(path).attr('stroke-width','12');
-    $(svg).find("svg").attr('width',width+40);
-    $(svg).find("svg").attr('height',height+40);
+    $(path).attr('stroke-width',lineWidth);
+    $(svg).find("svg").attr('width',width+(4*lineWidth));
+    $(svg).find("svg").attr('height',height+(4*lineWidth));
 
     var count = $("select option").length;
     $("select option").each(function() {
