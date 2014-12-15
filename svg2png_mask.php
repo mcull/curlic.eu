@@ -1,9 +1,8 @@
 <?php 
 header('Content-Type: image/png');
 
-$svg = file_get_contents("https://s3.amazonaws.com/curliceu/" . $_REQUEST["id"] . ".svg");
 
-$png =  file_get_contents('http://curlic.eu/svg2png.php?svg=' . urlencode($svg));
+$png =  file_get_contents('http://curlic.eu/svg2png.php?id=' . $_REQUEST['id'] . '&web=t');
 $mask = new Imagick();
 $mask->setBackgroundColor(new ImagickPixel('transparent'));
 $mask->readImageBlob($png);
