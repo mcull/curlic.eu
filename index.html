@@ -40,6 +40,7 @@
           <option value="grey" rel-opacity=".5" rel-color="666666">Smoke Grey</option>
           <option value="yellow" rel-opacity=".5" rel-color="FFFF00">Yellow</option>
           <option value="caribbean" rel-opacity=".5" rel-color="66FFCC">Caribbean Blue</option>
+          
           <option value="gold" rel-opacity=".8" rel-pattern="gold_glitter">Gold Glitter</option>
           <option value="bloodwood" rel-opacity="1" rel-pattern="bloodwood">Bloodwood</option>
           <option value="rosewood" rel-opacity="1" rel-pattern="rosewood">Rosewood</option>
@@ -209,12 +210,7 @@ function makeCutSVG(svg, callback) {
   var path = $(svg).find("path");
   $(path).attr("transform","translate(20,20)");
   $(path).attr('stroke','#00FF00');
-  $(path).attr('stroke-width', stroke + 'mm');
-  //scale it to 750mm wide
- 
 
-  $(svg).find("svg").attr('width',width + 40 + "mm");
-  $(svg).find("svg").attr('height',height+40+ "mm");
 
   guid = Math.uuid();
   var guidFile = guid + ".svg";
@@ -260,14 +256,16 @@ function processPreview() {
   var opacity;
   var height = parseInt($(svg).find("svg").attr('height'));
   var width = parseInt($(svg).find("svg").attr('width'));
-  makeCutSVG(svg, function() { //force this to wait on successful cut upload
-    var path = $(svg).find("path");
+  var path = $(svg).find("path");
 
-    $(path).attr("transform","translate(20,20)");
-    
-    $(path).attr('stroke-width',lineWidth);
-    $(svg).find("svg").attr('width',width+(4*lineWidth));
-    $(svg).find("svg").attr('height',height+(4*lineWidth));
+  $(path).attr('stroke-width',lineWidth);
+  $(svg).find("svg").attr('width',width+(2*lineWidth));
+  $(svg).find("svg").attr('height',height+(2*lineWidth));
+  $(path).attr("transform","translate(20,20)");
+   
+  makeCutSVG(svg, function() { //force this to wait on successful cut upload
+    console.log(xmlToString(svg));
+  
 
     var count = $("select option").length;
     $("select option").each(function() {
@@ -291,8 +289,8 @@ function processPreview() {
       img.src = src;
 
       $(img).attr('style','margin:0 auto');
-      $(img).attr('height',height + 40);
-      $(img).attr('width',width + 40);
+      //$(img).attr('height',height);
+      //$(img).attr('width',width);
       carouselItem.append(img);
       $("#previewPane").slickAdd(carouselItem);
     });
