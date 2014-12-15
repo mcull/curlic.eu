@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/app.css" />
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link type="text/css" id="snipcart-theme" href="https://app.snipcart.com/themes/base/snipcart.css" rel="stylesheet" />
+    <!--<link type="text/css" id="snipcart-theme" href="https://app.snipcart.com/themes/base/snipcart.css" rel="stylesheet" />-->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.3.7/slick.css"/>
     <link href='http://fonts.googleapis.com/css?family=Rochester|Noto+Sans|Shadows+Into+Light+Two|Yellowtail|Source+Code+Pro|Special+Elite' rel='stylesheet' type='text/css'>
     <script src="js/vendor/modernizr.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Bilbo+Swash+Caps|Rouge+Script|Yellowtail|Give+You+Glory|Montez|Lily+Script+One|Oleo+Script+Swash+Caps|Petit+Formal+Script|Oleo+Script|La+Belle+Aurore|Yesteryear|Alex+Brush|Grand+Hotel|Tangerine|Great+Vibes|Pacifico|Dancing+Script|Playball|Pinyon+Script|Special+Elite|Cookie|Rochester|Sacramento|Love+Ya+Like+A+Sister|Slackey|Leckerli+One|Press+Start+2P|Arizonia|Over+the+Rainbow|Italianno|Norican|Dawning+of+a+New+Day|Meddon' rel='stylesheet' type='text/css'>
   </head>
   <body>
-<form>
+
   <div class="row" style="padding-top:20px;">
     <div class="large-12 columns">
       <div class="row collapse postfix-round radius">
@@ -28,8 +28,7 @@
       </div>
     </div>
   </div>
-</form>
-<div class="row" id="scripts">
+<div class="row dynamic" id="scripts">
 </div>
 
     <div class="row">
@@ -48,7 +47,7 @@
     </div>
     <div class="row">
       <div class="large-12 columns">
-       <h2 style="font-family:'Shadows Into Light Two';">Choose a Style</h2> 
+       <h2 style="font-family:'Shadows Into Light Two';">Pick a script</h2> 
       </div>
     </div>
     <div class="row">
@@ -108,7 +107,7 @@
     <script>
     var guid;
     var dots = 1;
-    var fonts = [{"name":"Bilbo Swash Caps"},{"name":"Rouge Script"},{"name":"Yellowtail"},{"name":"Give You Glory"},{"name":"Montez"},{"name":"Lily Script One"},{"name":"Oleo Script Swash Caps"},{"name":"Petit Formal Script"},{"name":"Oleo Script"},{"name":"La Belle Aurore"},{"name":"Yesteryear"},{"name":"Alex Brush"},{"name":"Grand Hotel"},{"name":"Tangerine"},{"name":"Great Vibes"},{"name":"Pacifico"},{"name":"Dancing Script"},{"name":"Playball"},{"name":"Pinyon Script"},{"name":"Special Elite"},{"name":"Cookie"},{"name":"Rochester"},{"name":"Sacramento"},{"name":"Love Ya Like A Sister"},{"name":"Slackey"},{"name":"Leckerli One"},{"name":"Press Start 2P"},{"name":"Arizonia"},{"name":"Over the Rainbow"},{"name":"Italianno"},{"name":"Norican"},{"name":"Dawning of a New Day"},{"name":"Meddon"}];
+    var fonts = [{"name":"Meddon","fontSize":"1.1"},{"name":"Sacramento","fontSize":".75"},{"name":"Bilbo Swash Caps","letterSpacing":"-2px","fontSize":".75"},{"name":"Arizonia"},{"name":"Yellowtail"},{"name":"Pinyon Script"},{"name":"Playball"},{"name":"Lily Script One"},{"name":"Oleo Script Swash Caps","letterSpacing":"-2px","fontSize":".9"},{"name":"Petit Formal Script"},{"name":"Alex Brush"},{"name":"Dancing Script"},{"name":"Norican"},{"name":"Yesteryear"},{"name":"Pacifico"},{"name":"Grand Hotel"},{"name":"Great Vibes"},{"name":"Rochester"},{"name":"Special Elite","letterSpacing":"-4px"},{"name":"Slackey","letterSpacing":"-3px"},{"name":"Press Start 2P","fontSize":"1.2","letterSpacing":"-3px"},{"name":"Italianno","fontSize":".6",},{"name":"Rouge Script","letterSpacing":"-2px","fontSize":".75"},{"name":"Dawning of a New Day","fontSize":".7"}];
 
     function getFontByName(name) {
       var retVal = null;
@@ -123,12 +122,18 @@
 
     function refreshExamples() {
       var newText = $("#name").val();
+      var newSize = 36;
       if (!newText || newText.length ==0) {
         newText = "Example";
       }
+      if (newText.length > 8) {
+        newSize = 32-(4*(newText.length - 8));
+      }
      $.each($(".preview"),function(index,val) {
       $(val).text(newText);
+     // $(val).css("font-size",newSize + "px");
      });
+     $(".dynamic").show();
     }
 
       $(document).foundation();   
@@ -137,25 +142,41 @@
         //initSlick(); 
         $.each(fonts,function(index,val) {
           var id = val.name.replace(" ", "-");
+          var fontSpacing = "";
+          var fontSize = 32;
+
           $("#scripts").append("<div  id='" 
                                     + id 
                                     + "' class='preview large-3 medium-4 small-6 columns' style='font-family:\"" 
                                     + val.name
-                                    + "\"'>Example</div>");
-        });
+                                    + "\";"
+                                    + ((val.letterSpacing) ? "letter-spacing:"
+                                                            +  val.letterSpacing
+                                                            + ";"
+                                                            : "")
+                                    + "font-size:" 
+                                    + ((val.fontSize) ? parseInt(fontSize/parseFloat(val.fontSize))  
+                                                            : fontSize)
+                                    + "px;"
+                                    + "' alt='"
+                                    + val.name
+                                    + "'>Example</div>");
+        })
 
         $(".preview").click(function() {
           $(".selectedScript").removeClass("selectedScript");
           $(this).addClass("selectedScript");
-          console.log(this);
+          $(this).text($(this).attr("id"));
         });
 
-
-
-
+        $("#name").on("input",function() {
+          if ($("#name").val().length ==0) {
+            $(".dynamic").hide();
+          } 
+        });
 
         window.setInterval(function(){ 
-          var prompt = "Your name";
+          var prompt = "Type your name";
           for (var i = 0; i < dots; i++) {
             prompt += ".";
           }
@@ -164,6 +185,13 @@
           dots = ++dots %4;
         },1000);       
 
+      });
+
+      $(document).keypress(function(e) {
+        if(e.which == 13) {
+          event.stopPropagation();
+          refreshExamples($("#name").val());
+        }
       });
 
     function SVG(tag)

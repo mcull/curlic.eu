@@ -56,9 +56,15 @@ body {
 }
 
 .preview {
-  font-size:32px;
   height:48px;
   text-align: center;
+  margin-bottom:25px;
+    cursor: pointer;
+
+}
+
+.dynamic {
+  display:none;
 }
 
 .selectedScript {
@@ -69,5 +75,19 @@ body {
   font-family:'Source Code Pro';
   font-size:32px;
   height:64px;
+}
+
+.strand {
+  font-family: Sacramento;
+  font-size:32px;
+  color:#cccccc;
+  opacity:.8;
+}
+
+
+
+.spacer {
+  width:10px;
+  visibility: hidden;
 }
 
