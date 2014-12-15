@@ -1,16 +1,2 @@
-<?xml version="1.0"?>
-<svg xmlns="http://www.w3.org/2000/svg"
-     width="800px" height="300px" viewBox="0 0 1000 300">
-<defs>
-  <style type="text/css">@import url(http://fonts.googleapis.com/css?family=Indie+Flower);</style>
-</defs>
-  <text x="250" y="150" 
-        font-family="Indie Flower" 
-        font-size="55">
-    Hello, out there
-  </text>
-
-  <!-- Show outline of canvas using 'rect' element -->
-  <rect x="1" y="1" width="998" height="298"
-        fill="none" stroke-width="2" />
-</svg>
+<?xml version="1.0"?><svg xmlns="http://www.w3.org/2000/svg"
+     width="800px" height="300px" viewBox="0 0 1000 300" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><style type="text/css">@import url(http://fonts.googleapis.com/css?family={websafe-font-name});</style></defs><text x="0" y="0" font-family="{font-name}" font-size="55">{text}</text></svg>

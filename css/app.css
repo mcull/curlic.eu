@@ -15,7 +15,7 @@ body {
 }
 
 #signature {
-  positon:relative;
+  position:relative;
 }
 
 #branding {
@@ -53,5 +53,21 @@ body {
 
 .drawArea {
   border-style:none;
+}
+
+.preview {
+  font-size:32px;
+  height:48px;
+  text-align: center;
+}
+
+.selectedScript {
+  color:yellow;
+}
+
+.topBig {
+  font-family:'Source Code Pro';
+  font-size:32px;
+  height:64px;
 }
 

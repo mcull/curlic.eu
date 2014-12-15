@@ -1,0 +1,320 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curliceu | Jewelry You Draw</title>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/app.css" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link type="text/css" id="snipcart-theme" href="https://app.snipcart.com/themes/base/snipcart.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.3.7/slick.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Rochester|Noto+Sans|Shadows+Into+Light+Two|Yellowtail' rel='stylesheet' type='text/css'>
+    
+    <script src="../js/vendor/modernizr.js"></script>
+  </head>
+  <body>
+    
+    <div class="row" >
+       <div class="large-12 columns panel" id="pic" style="display:none;">
+        <h4 style="font-family:'Shadows Into Light Two';"><i class="fa fa-magic"></i> <i>Now choose material and color...  </i></h4>
+        <div id="previewPane" class="drawArea" style="text-align:center;background-image:url('../img/swirl_pattern.png');border:1px solid #cccccc;">
+        </div>
+       </div> 
+      <div class="large-12 columns panel" id="drawPane">
+
+        <h4 style="font-family:'Shadows Into Light Two';"><i class="fa fa-paint-brush"></i> <i>Write or draw something below...</i></h4>
+        <div id="signature" class="drawArea" style="border: solid 1px #ccc;background-image:url('../img/swirl_pattern.png');"></div>
+        <div style="display:table;margin:0 auto;width:85%;border-bottom:1px solid #999999;border-left:1px solid #999999;border-right:1px solid #999999;text-align:center;position:relative;top:-10px;"><div style="padding-right:20px;padding-left:20px;width:100px;margin:0 auto;text-align:center;position:relative;bottom:-14px;" id="measurement"> about 3" </div></div>
+      </div>
+      <div class="large-4 medium-4 small-4 columns" style="text-align:center;">      
+        <a href="javascript:void();" class="tiny round button" id="reset"><i class="fa fa-refresh"></i> Reset</a>
+      </div>
+      <div class="large-4 medium-4 small-4 columns" style="text-align:center">  
+        <select style="display:none" id="colors" class="small">
+          <option value="red" rel-opacity="1" rel-color="FF0000">Red</option>
+          <option value="white" rel-opacity="1" rel-color="FFFFFF">White</option>
+          <option value="blue" rel-opacity="1" rel-color="0000FF">Blue</option>
+          <option value="orange" rel-opacity="1" rel-color="FF9900">Orange</option>
+          <option value="green" rel-opacity="1" rel-color="009900">Green</option>
+          <option value="sky-blue" rel-opacity=".5" rel-color="33CCFF">Sky Blue</option>
+          <option value="grey" rel-opacity=".5" rel-color="666666">Smoke Grey</option>
+          <option value="yellow" rel-opacity=".5" rel-color="FFFF00">Yellow</option>
+          <option value="caribbean" rel-opacity=".5" rel-color="66FFCC">Caribbean Blue</option>
+          
+          <option value="gold" rel-opacity=".8" rel-pattern="gold_glitter">Gold Glitter</option>
+          <option value="bloodwood" rel-opacity="1" rel-pattern="bloodwood">Bloodwood</option>
+          <option value="rosewood" rel-opacity="1" rel-pattern="rosewood">Rosewood</option>
+          <option value="pink" rel-opacity=".75" rel-color="FFCCFF">Pink</option>
+          <option value="purple" rel-opacity=".5" rel-color="CC66FF">Purple</option>
+        </select> 
+
+        </div>
+        <div class="large-4 medium-4 small-4 columns" style="text-align:center">
+          <a href="javascript:void(0);" class="tiny round button" id="preview"> Next <i class="fa fa-hand-o-right"></i></a>
+          <a href="javascript:void(0)" class="tiny round button snipcart-add-item" 
+                      data-item-id="1" 
+                      data-item-name="Curlicue Signature Necklace" 
+                      data-item-price="50.00" 
+                      data-item-weight="20" 
+                      data-item-url="http://curlic.eu" 
+                      data-item-description="Custom Necklace"
+                      id="buy"><i class="fa fa-shopping-cart"></i> Buy It!</a>
+        </div>
+      </div>
+    <div class="row">
+      <div class="large-6 columns">
+       <h2 style="font-family:'Shadows Into Light Two';">Details</h2>
+       <span class="brand">Curliceu</span><span id="tm">&#0153;</span> necklaces are one-of-a-kind accessories.  
+       <ul>
+        <li>Measures approx 3" wide by 1.5" tall</li>
+        <li>Custom acryllic pendant hangs on 18" sterling silver chain</li>
+        <li>Typically ships next-day</li>
+      </ul>
+      </div>
+      <div class="large-6 columns" id="models">
+       <img src="../img/model1.jpg">
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-12 columns">
+       <h2 style="font-family:'Shadows Into Light Two';">Examples</h2> 
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-4 medium-6 columns photo">
+        <img src="../img/product_demo.png" height="150px">
+      </div>
+      <div class="large-4 medium-6 columns photo">
+        <img src="../img/sky_blue.JPG" height="150px">
+      </div>
+      <div class="large-4 medium-6 columns photo">
+        <img src="../img/yellow.JPG" height="150px">
+      </div>
+      <div class="large-4 medium-6 columns photo">
+        <img src="../img/zebra.JPG" height="150px">
+      </div>
+      <div class="large-4 medium-6 columns photo">
+        <img src="../img/sky_blue.JPG" height="150">
+      </div>
+      <div class="large-4 medium-6 columns photo">
+        <img src="../img/product_demo.png" height="150">
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-12 columns" id="bitmap"></div>
+    </div>
+    <div class="row" style="border-top: 1px solid #999;"> 
+      <div class="large-4 medium-4 small-4 columns" >
+        <h6><small>&copy;2014 Valley View Customs</small></h6>
+      </div>
+      <div class="large-4 medium-4 small-4 columns" style="text-align:center;">
+        <small>Proudly hand-made in Kentucky</small><img src="img/kentucky.png" height="32" width="32" >
+      </div>
+      <div class="large-4 medium-4 small-4 columns" style="text-align:right;">
+        <img src="img/Made-In-USA.png" width="35" height="32">
+      </div>
+    </div>
+    <div class="row">
+       <div class="large-12 columns" >
+        <a href="javascript:void(0);" id="emailTrigger" style="display:none;">Trigger Email </a><span id="emailConfirm" style="display:none;color:red">Email sent!</span>
+      </div>
+    </div>
+    <script src="../js/vendor/jquery.js"></script>
+    <script type="text/javascript" id="snipcart" 
+            src="https://app.snipcart.com/scripts/snipcart.js"
+            data-api-key="OTBmZTVjYTgtZGMxMy00NzFmLTk1ODEtNDc3ZTdjOTMxMjU2"></script>
+    <script src="../js/foundation.min.js"></script>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.0.19.min.js"></script>
+    <script type="text/javascript">
+      // See the Configuring section to configure credentials in the SDK
+      AWS.config.update({accessKeyId: 'AKIAJ4QFV4CSVMS5FWUA', secretAccessKey: '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'});
+    </script>
+    <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.slick/1.3.7/slick.min.js"></script>
+        
+	<!--[if lt IE 9]>
+	<script type="text/javascript" src="js/vendor/flashcanvas.js"></script>
+	<![endif]-->
+	<script src="../js/vendor/jSignature.min.js"></script>
+  
+    <script src="../js/math.uuid.js"></script>
+    <script src="../js/blur.min.js"></script>
+    <script src="../js/app.js"></script>
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script>
+    var guid;
+    var sigArea;
+    var lineWidth = 10;
+      function initSlick() {
+        $('#previewPane').slick({
+          'centerMode':true,
+          'dots':false,
+          'onAfterChange':function() {
+            var numOfColors = $("#colors > option").length;
+            var index = $("#previewPane").slickCurrentSlide() % numOfColors;
+            var color = $('#colors > option').eq(index).val();
+            $("#buy").attr("data-item-description",color + " - " + guid);
+            $('#colors > option').eq(index).attr('selected','selected');
+          }
+        });
+      } 
+      $(document).foundation();
+      
+      $(document).ready(function() {
+        
+        
+        lineWidth = (.8 * $("#signature").width()/100)*3; 
+
+        sigArea = $("#signature").jSignature({UndoButton:false,lineWidth:lineWidth});
+        initSlick();
+
+        $('.drawArea').blurjs({
+          source: '.drawArea',
+          radius: 0,
+          overlay: 'rgba(232,230,224,0.4)'
+
+        });
+
+        $("#reset").click(function() {
+          $("#drawPane").show();
+          $("#preview").show();
+          $("#buy").hide();
+          $("#pic").hide();
+          $("#colors").hide();
+          $("#previewPane").unslick().empty();
+          initSlick();
+          sigArea.jSignature('reset');
+        });
+        
+        $("#preview").click(function() {
+          $("#drawPane").hide();
+          $("#preview").hide();
+          $("#buy").show();
+          processPreview();
+          $("#colors").show();
+
+        });
+
+        $("#colors").change(function() {  
+          $("#previewPane").slickGoTo($("#colors")[0].selectedIndex);
+        });
+        
+      });
+
+function makeCutSVG(svg, callback) {
+  
+  var height = parseInt($(svg).find("svg").attr('height'));
+  var width = parseInt($(svg).find("svg").attr('width'));
+  //scale the stroke so it ends at 4mm when the piece gets scaled down to 3"
+  var stroke = 8;
+
+  var path = $(svg).find("path");
+  $(path).attr("transform","translate(20,20)");
+  $(path).attr('stroke','#00FF00');
+
+
+  guid = Math.uuid();
+  var guidFile = guid + ".svg";
+  var bucket = new AWS.S3({params: {Bucket: 'curliceu'}});
+  var params = {Key: guidFile, Body: xmlToString(svg)};
+    bucket.putObject(params, function (err, data) {
+      var response = err ? 'ERROR!' : 'SAVED.';
+      if (response == err) {
+        console.log(err);
+      } else {
+        console.log(data);
+        if (callback) {
+          callback();
+        }
+        var guidUrl = " https://s3.amazonaws.com/curliceu/" + guidFile;
+        //now expose a button that'll trigger the email
+        $("#emailTrigger").append(": " + guid);
+        $("#emailTrigger").show();
+        $("#emailTrigger").click(function() {
+          var color = $("#colors option:selected").val();
+          $.get( "sendEmailToPrinter.php?guid=" + guid + "&material=" + color, function( data ) {
+            $( "#emailConfirm" ).show();
+          });
+        })
+      }
+
+    });
+}
+
+function SVG(tag)
+{
+   return document.createElementNS('http://www.w3.org/2000/svg', tag);
+}
+
+
+function processPreview() {
+  $("#pic").show();
+
+  var svg = $.parseXML(sigArea.jSignature("getData", "svg")[1]);
+  
+  var color;
+  var pattern;
+  var opacity;
+  var height = parseInt($(svg).find("svg").attr('height'));
+  var width = parseInt($(svg).find("svg").attr('width'));
+  var path = $(svg).find("path");
+
+  $(path).attr('stroke-width',lineWidth);
+  $(svg).find("svg").attr('width',width+(2*lineWidth));
+  $(svg).find("svg").attr('height',height+(2*lineWidth));
+  $(path).attr("transform","translate(20,20)");
+   
+  makeCutSVG(svg, function() { //force this to wait on successful cut upload
+    console.log(xmlToString(svg));
+  
+
+    var count = $("select option").length;
+    $("select option").each(function() {
+
+      color = $(this).attr("rel-color");
+      pattern = $(this).attr("rel-pattern");
+      opacity = $(this).attr("rel-opacity");
+      $(path).attr("stroke-opacity",opacity);
+      
+      var src = null;
+      if (color && color.length > 0) {
+        $(path).attr('stroke','#' + color);
+        src = "data:image/svg+xml;base64," + btoa(xmlToString(svg));
+      } else if (pattern && pattern.length > 0) {
+        $(path).attr("stroke","url(#" + pattern + ")");
+        src = "http://curlic.eu/svg2png_mask.php?id=" + guid + "&m=" + pattern;
+      }
+      var carouselItem = $("<div>");
+      var img = new Image();
+
+      img.src = src;
+
+      $(img).attr('style','margin:0 auto');
+      //$(img).attr('height',height);
+      //$(img).attr('width',width);
+      carouselItem.append(img);
+      $("#previewPane").slickAdd(carouselItem);
+    });
+    
+    $("#previewPane").slickGoTo(0);
+  });
+  
+  
+}
+
+function xmlToString(xmlData) { 
+
+    var xmlString;
+    //IE
+    if (window.ActiveXObject){
+        xmlString = xmlData.xml;
+    }
+    // code for Mozilla, Firefox, Opera, etc.
+    else{
+        xmlString = (new XMLSerializer()).serializeToString(xmlData);
+    }
+    return xmlString;
+} 
+    </script>
+  </body>
+</html>
