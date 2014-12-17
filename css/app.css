@@ -128,7 +128,11 @@ body {
 .price {
   font-family:'Fenix';
   color:#636363;
+  
 } 
+#orderTotal {
+  text-align:right;
+}
 
 .expando {
   text-align: center;
@@ -137,6 +141,22 @@ body {
 
 .chosenMaterial {
   border:2px solid yellow;
+}
+
+.orderFormTitle {
+  text-align:center;
+  font-family:'Source Code Pro';
+  font-size:18px;
+}
+
+.orderForm {
+  text-align: left;
+}
+
+.summaryTitle {
+  text-align: left;
+  font-size:14px;
+  font-family:'Noto Sans';
 }
 
 .highlighted {
