@@ -12,181 +12,183 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.3.7/slick.css"/>
     <link href='http://fonts.googleapis.com/css?family=Rochester|Noto+Sans|Shadows+Into+Light+Two|Yellowtail|Source+Code+Pro|Nixie+One' rel='stylesheet' type='text/css'>
     <script src="js/vendor/modernizr.js"></script>
-    <link href='http://fonts.googleapis.com/css?family=Bilbo+Swash+Caps|Rouge+Script|Yellowtail|Give+You+Glory|Montez|Lily+Script+One|Oleo+Script+Swash+Caps|Petit+Formal+Script|Oleo+Script|La+Belle+Aurore|Yesteryear|Alex+Brush|Grand+Hotel|Tangerine|Great+Vibes|Pacifico|Dancing+Script|Playball|Pinyon+Script|Special+Elite|Cookie|Rochester|Sacramento|Love+Ya+Like+A+Sister|Slackey|Leckerli+One|Press+Start+2P|Arizonia|Over+the+Rainbow|Italianno|Norican|Dawning+of+a+New+Day|Meddon' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Bilbo+Swash+Caps|Rouge+Script|Yellowtail|Give+You+Glory|Montez|Lily+Script+One|Oleo+Script+Swash+Caps|Petit+Formal+Script|Oleo+Script|Yesteryear|Alex+Brush|Grand+Hotel|Tangerine|Great+Vibes|Pacifico|Dancing+Script|Playball|Pinyon+Script|Special+Elite|Cookie|Rochester|Sacramento|Slackey|Leckerli+One|Press+Start+2P|Arizonia|Over+the+Rainbow|Italianno|Norican|Dawning+of+a+New+Day|Meddon' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Fenix|Headland+One|Holtwood+One+SC|Ovo|Marcellus|Sanchez|Alegreya+SC' rel='stylesheet' type='text/css'>
   </head>
   <body>
-<div class="row" id="sequence">
-  <div class="large-3 medium-3 small-3 columns">
-</div>
-<div class="row" style="padding-top:20px;margin-bottom:15px;">
-  <div class="large-12 columns">
-    <div class="row collapse postfix-round radius">
 
-      <div class="small-10 columns" >
-        <input type="text" placeholder="Type your name..." style="font-family:'Nixie One';font-size:32px;height:64px;" id="name">
-      </div>
-      <div class="small-2 columns">
-        <a href="javascript:refreshExamples();" id="go" class="button postfix" style="font-family:'Nixie One';font-size:48px;height:64px;padding-top:10px;"><i class="fa fa-magic"></i></a>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row" style="padding-bottom:15px;">
-  <a name="chooseStyle"></a>
-  <div class="large-12 columns sectionHead styleHead" id="styleHeader" >
-    '-- Choose Style --'
-  </div>
-  <div class="large-12 columns sectionHead subHead styleHead" id="styleSubhead" >
-    Click on your fav
-  </div>
-</div>
-<div class="row dynamic" id="scripts">
-</div>
-<div class="row" style="padding-bottom:15px;">
-  <a name="chooseStyle"></a>
-  <div class="large-12 columns sectionHead material" id="materialHeader" >
-    '-- Choose Material --'
-  </div>
-  <div class="large-12 columns sectionHead subHead material" id="materialSubhead" >
-    Click on your fav
-  </div>
-</div>
-<div class="row material">
-  <div class="large-4 medium-4 small-4 columns" style="text-align:center;">
-    <span class="materialName">Acrylic</span> <span class="price">$45</span>
-    <div id="glitterHead" class="expando">
-      <div class="menuToggle"><i class="fa fa-plus-square-o"></i> Glitter<br>
-        <div class="exemplar">
-          <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/24233/preview/Gold%20closeup.jpg?1377709614" width="86" height="66"/>
-        </div>
-      </div>
-      <div id="glitter" class="expandedList" style="display:none">
-        <div>
-          Gold<br>
-          <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/24233/preview/Gold%20closeup.jpg?1377709614" width="86" height="66"/>
-        </div>
-        <div>
-          Silver<br>
-          <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/24227/preview/Silver%20closeup.jpg?1377708196" width="86" height="66"/>
-        </div>
-          <div>
-          Red<br>
-          <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/24234/preview/Red%20closeup.jpg?1377709691
-      " width="86" height="66"/>
-        </div>
-      </div>
-    </div>
-    <div id="solidHead" class="expando">
-      <div class="menuToggle"><i class="fa fa-plus-square-o"></i> Solid<br>
-        <div class="exemplar">
-          <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/21955/preview/bubble_gum_pink.jpg?1335203621" width="86" height="66"/>
-        </div>
-      </div>
-      <div id="solid" class="expandedList" style="display:none">
-        <div>
-          Pink<br>
-          <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/21955/preview/bubble_gum_pink.jpg?1335203621" width="86" height="66"/>
-        </div>
-        <div>
-          Black<br>
-          <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/18974/preview/black_-_25094.jpg?1335203542" width="86" height="66"/>
-        </div>
-        <div>
-          Red<br>
-          <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/22902/preview/24132%20-%20red.jpg?1335381845" width="86" height="66"/>
-        </div>
-        <div>
-          White<br>
-          <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/19039/preview/white_-_25079.jpg?1335203554" width="86" height="66"/>
-        </div>
-        <div>
-          Blue<br>
-          <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/22900/preview/24131%20-%20blue.jpg?1335381667" width="86" height="66"/>
-        </div>
-        <div>
-          Yellow<br>
-          <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/22897/default/24113%20-%20yellow.jpg?1335381351" width="86" height="66"/>
-        </div>
-        <div>
-          Green<br>
-          <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/22904/preview/24133%20-%20green.jpg?1335382020" width="86" height="66"/>
-        </div>
-      </div>
-    </div>
-    <div id="mirrorHead" class="expando">
-      <div class="menuToggle"><i class="fa fa-plus-square-o"></i> Mirrored<br>
-        <div class="exemplar">
-          <img  class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/22878/preview/blue.jpg?1335213373" width="86" height="66"/>
-        </div>
-      </div>
-      <div id="mirror" class="expandedList" style="display:none">
-        <div>
-          Blue<br>
-          <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/22878/preview/blue.jpg?1335213373" width="86" height="66"/>
-        </div>
-        <div>
-          Pink<br>
-          <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/22873/preview/pink.jpg?1335213062" width="86" height="66"/>
-        </div>
-        <div>
-          Green<br>
-          <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/22882/preview/green.jpg?1335213553" width="86" height="66"/>
-        </div>
-        
-        <div>
-          Red<br>
-          <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/22888/preview/mirror%20red.jpg?1335213854" width="86" height="66"/>
-        </div>
-        <div>
-          Slate Grey<br>
-          <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/22876/preview/slate%20grey.jpg?1335213246" width="86" height="66"/>
-        </div>
-        <div>
-          Purple<br>
-          <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/22884/preview/purple.jpg?1335213618" width="86" height="66"/>
-        </div>
-      </div>
-    </div>
-    <div id="transHead" class="expando">
-      <div class="menuToggle"><i class="fa fa-plus-square-o"></i> Pastel<br>
-        <div class="exemplar">
-          <img  class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/22135/preview/25087_-_caribbean.jpg?1335203676" width="86" height="66"/>
-        </div>
-      </div>
-      <div id="trans" class="expandedList" style="display:none">
-        <div>
-          Caribbean<br>
-          <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/22135/preview/25087_-_caribbean.jpg?1335203676" width="86" height="66"/>
-        </div>
-         <div>
-          Pink Passion<br>
-          <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/22105/preview/25090_-_pink_passion_fuit.jpg?1335203665" width="86" height="66"/>
-        </div>
-         <div>
-          Rain Drop<br>
-          <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/22099/preview/25084_-_raindrop.jpg?1335203663" width="86" height="66"/>
-        </div>
-         <div>
-          Kiwi<br>
-          <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/22039/preview/25094_-_kiwi.jpg?1335203646" width="86" height="66"/>
-        </div>
-         <div>
-          Citrus<br>
-          <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/19004/preview/citrus_-_25088.jpg?1335203548" width="86" height="66"/>
-        </div>
-      </div>
-    </div>
 
-  </div>
+    <a name="top"></a>
+    <div class="row" data-magellan-destination="top" style="padding-top:20px;margin-bottom:15px;">
+      <div class="large-12 columns">
+        <div class="row collapse postfix-round radius">
+          <div class="small-10 columns" >
+            <input type="text" placeholder="Type your name..." style="font-family:'Nixie One';font-size:32px;height:64px;" id="name">
+          </div>
+          <div class="small-2 columns">
+            <a href="javascript:refreshExamples(true);" id="go" class="button postfix" style="font-family:'Nixie One';font-size:48px;height:64px;padding-top:10px;"><i class="fa fa-magic"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="padding-bottom:15px;">
+      <div class="large-12 columns sectionHead styleHead" id="styleHeader" data-magellan-destination="chooseStyle">
+         <a name="chooseStyle"></a>
+        -- Choose Style --
+      </div>
+      <div class="large-12 columns sectionHead subHead styleHead" id="styleSubhead" >
+        Click on your fav
+      </div>
+    </div>
+    <div class="row dynamic" id="scripts">
+    </div>
+    
+    <a name="chooseMaterial"></a>
+    <div class="row" style="padding-bottom:15px;">
+      <div class="large-12 columns sectionHead material" id="materialHeader"data-magellan-destination="chooseMaterial" >
+        -- Choose Material --
+      </div>
+      <div class="large-12 columns sectionHead subHead material" id="materialSubhead" >
+        Click on your fav
+      </div>
+    </div>
+    <div class="row material">
+      <div class="large-4 medium-4 small-4 columns" style="text-align:center;">
+        <span class="materialName">Acrylic</span> <span class="price">$45</span>
+        <div id="glitterHead" class="expando">
+          <div class="menuToggle"><i class="fa fa-plus-square-o"></i> Glitter<br>
+            <div class="exemplar">
+              <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/24233/preview/Gold%20closeup.jpg?1377709614" width="86" height="66"/>
+            </div>
+          </div>
+          <div id="glitter" class="expandedList" style="display:none">
+            <div>
+              Gold<br>
+              <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/24233/preview/Gold%20closeup.jpg?1377709614" width="86" height="66"/>
+            </div>
+            <div>
+              Silver<br>
+              <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/24227/preview/Silver%20closeup.jpg?1377708196" width="86" height="66"/>
+            </div>
+              <div>
+              Red<br>
+              <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/24234/preview/Red%20closeup.jpg?1377709691" width="86" height="66"/>
+            </div>
+          </div>
+        </div>
+        <div id="solidHead" class="expando">
+          <div class="menuToggle"><i class="fa fa-plus-square-o"></i> Solid<br>
+            <div class="exemplar">
+              <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/21955/preview/bubble_gum_pink.jpg?1335203621" width="86" height="66"/>
+            </div>
+          </div>
+          <div id="solid" class="expandedList" style="display:none">
+            <div>
+              Pink<br>
+              <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/21955/preview/bubble_gum_pink.jpg?1335203621" width="86" height="66"/>
+            </div>
+            <div>
+              Black<br>
+              <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/18974/preview/black_-_25094.jpg?1335203542" width="86" height="66"/>
+            </div>
+            <div>
+              Red<br>
+              <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/22902/preview/24132%20-%20red.jpg?1335381845" width="86" height="66"/>
+            </div>
+            <div>
+              White<br>
+              <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/19039/preview/white_-_25079.jpg?1335203554" width="86" height="66"/>
+            </div>
+            <div>
+              Blue<br>
+              <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/22900/preview/24131%20-%20blue.jpg?1335381667" width="86" height="66"/>
+            </div>
+            <div>
+              Yellow<br>
+              <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/22897/default/24113%20-%20yellow.jpg?1335381351" width="86" height="66"/>
+            </div>
+            <div>
+              Green<br>
+              <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/22904/preview/24133%20-%20green.jpg?1335382020" width="86" height="66"/>
+            </div>
+          </div>
+        </div>
+        <div id="mirrorHead" class="expando">
+          <div class="menuToggle"><i class="fa fa-plus-square-o"></i> Mirrored<br>
+            <div class="exemplar">
+              <img  class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/22878/preview/blue.jpg?1335213373" width="86" height="66"/>
+            </div>
+          </div>
+          <div id="mirror" class="expandedList" style="display:none">
+            <div>
+              Blue<br>
+              <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/22878/preview/blue.jpg?1335213373" width="86" height="66"/>
+            </div>
+            <div>
+              Pink<br>
+              <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/22873/preview/pink.jpg?1335213062" width="86" height="66"/>
+            </div>
+            <div>
+              Green<br>
+              <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/22882/preview/green.jpg?1335213553" width="86" height="66"/>
+            </div>
+            
+            <div>
+              Red<br>
+              <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/22888/preview/mirror%20red.jpg?1335213854" width="86" height="66"/>
+            </div>
+            <div>
+              Slate Grey<br>
+              <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/22876/preview/slate%20grey.jpg?1335213246" width="86" height="66"/>
+            </div>
+            <div>
+              Purple<br>
+              <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/22884/preview/purple.jpg?1335213618" width="86" height="66"/>
+            </div>
+          </div>
+        </div>
+        <div id="transHead" class="expando">
+          <div class="menuToggle"><i class="fa fa-plus-square-o"></i> Pastel<br>
+            <div class="exemplar">
+              <img  class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/22135/preview/25087_-_caribbean.jpg?1335203676" width="86" height="66"/>
+            </div>
+          </div>
+          <div id="trans" class="expandedList" style="display:none">
+            <div>
+              Caribbean<br>
+              <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/22135/preview/25087_-_caribbean.jpg?1335203676" width="86" height="66"/>
+            </div>
+             <div>
+              Pink Passion<br>
+              <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/22105/preview/25090_-_pink_passion_fuit.jpg?1335203665" width="86" height="66"/>
+            </div>
+             <div>
+              Rain Drop<br>
+              <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/22099/preview/25084_-_raindrop.jpg?1335203663" width="86" height="66"/>
+            </div>
+             <div>
+              Kiwi<br>
+              <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/22039/preview/25094_-_kiwi.jpg?1335203646" width="86" height="66"/>
+            </div>
+             <div>
+              Citrus<br>
+              <img class="sample" src="https://dzevsq2emy08i.cloudfront.net/paperclip/technology_image_uploaded_images/19004/preview/citrus_-_25088.jpg?1335203548" width="86" height="66"/>
+            </div>
+          </div>
+        </div>
+      </div>
     <div class="large-4 medium-4 small-4 columns" style="text-align:center;">
-    <span class="materialName"><i class="fa fa-recycle"></i>Rubber</span> <span class="price">$55</span>
+    <span class="materialName"><i class="fa fa-recycle" style="color:green;"></i>Rubber</span> <span class="price">$55</span>
     <div>
-    Green Dots<br>
+    Black<br>
+    <img class="sample" src="http://www.rubbercal.com/images_item/sheet_rubber/X_Derm_Entry_Medium.jpg" width="86" height="66"/>
+    </div>
+    <div>
+    w/Green<br>
     <img class="sample" src="http://www.rubbercal.com/images_item/sheet_rubber/Recycled_Rubber_Corner_Green_Medium.jpg" width="86" height="66"/>
     </div>
     <div>
-    Blue Dots<br>
+    w/Blue<br>
     <img class="sample" src="http://www.rubbercal.com/images_item/sheet_rubber/Recycled_Rubber_Texture_Blue_Medium.jpg" width="86" height="66"/>
     </div>
     <div>
@@ -216,16 +218,16 @@
   </div>
 </div>
 <div class="row order sectionHead" style="padding-bottom:15px;" >
-  <a name="order"></a>
-  <div class="large-12 columns sectionHead order" id="orderHeader" >
-    '-- Order --'
+  <div class="large-12 columns sectionHead order" id="orderHeader" data-magellan-destination="order">
+    <a name="order"></a>
+    -- Order --
   </div>
   <div class="large-12 columns sectionHead subHead order" id="orderSubhead" >
     <i class="fa fa-cc-visa"></i> <i class="fa fa-cc-mastercard"></i> <i class="fa fa-cc-amex"></i> <i class="fa fa-cc-discover"></i> <i class="fa fa-shield"></i> <i class="fa fa-lock"></i>
   </div>
   <div class="large-12 medium-12 small-12 columns">
     <div class="orderFormTitle">Summary</div>
-    <div class="orderForm" style="text-align:center;padding-top:5px;background-color:rgba(50,50,50,.5);height:44px">
+    <div class="orderForm" style="text-align:center;padding-top:5px;background-color:rgba(255,255,50,.5);height:44px;font-size:32px;">
       <div class="large-4 medium-4 small-4 columns summaryTitle" id="orderName"></div>
       <div class="large-4 medium-4 small-4 columns summaryTitle" id="orderMaterial"></div>
       <div class="large-4 medium-4 small-4 columns summaryTitle price" id="orderTotal"></div>
@@ -464,13 +466,15 @@
         
   
     <script src="js/math.uuid.js"></script>
-    <script src="js/blur.min.js"></script>
+     <script src="js/blur.min.js"></script>
+    <script src="js/jquery.timer.js"></script>
     <script src="js/app.js"></script>
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
     <script>
     var guid;
     var dots = 1;
     var fonts = [{"name":"Meddon","fontSize":"1.1"},{"name":"Sacramento","fontSize":".75"},{"name":"Bilbo Swash Caps","letterSpacing":"-2px","fontSize":".75"},{"name":"Arizonia"},{"name":"Yellowtail"},{"name":"Pinyon Script"},{"name":"Playball"},{"name":"Lily Script One"},{"name":"Oleo Script Swash Caps","letterSpacing":"-2px","fontSize":".9"},{"name":"Petit Formal Script"},{"name":"Alex Brush"},{"name":"Dancing Script"},{"name":"Norican"},{"name":"Yesteryear"},{"name":"Pacifico"},{"name":"Grand Hotel"},{"name":"Great Vibes"},{"name":"Rochester"},{"name":"Special Elite","letterSpacing":"-4px"},{"name":"Slackey","letterSpacing":"-3px"},{"name":"Press Start 2P","fontSize":"1.2","letterSpacing":"-3px"},{"name":"Italianno","fontSize":".6",},{"name":"Rouge Script","letterSpacing":"-2px","fontSize":".75"},{"name":"Dawning of a New Day","fontSize":".7"}];
+    var popularNames=["Hannah","Emily","Sarah","Madison","Brianna","Kaylee","Kaitlyn","Hailey","Alexis","Elizabeth","Taylor","Lauren","Ashley","Katherine","Jessica","Anna","Samantha","Makayla","Kayla","Madeline","Jasmine","Alyssa","Abigail","Olivia","Brittany","Nicole","Destiny","Mackenzie","Emma","Jennifer","Rachel","Sydney","Megan","Grace","Alexandra","Morgan","Savannah","Victoria","Sophia","Natalie","Amanda","Stephanie","Chloe","Allison","Rebecca","Jacqueline","Julia","Cheyenne","Amber","Erica","Isabella","Kylie","Christina","Brooke","Bailey","Maria","Diana","Danielle","Kelsey","Jordan","Andrea","Vanessa","Melissa","Kimberly","Sierra","Maya","Michelle","Caroline","Arianna","Zoe","Leslie","Isabel","Gabrielle","Faith","Lindsey","Erin","Kiara","Jenna","Casey","Paige","Mary","Alicia","Cameron","Alexandria","Molly","Melanie","Katie","Courtney","Trinity","Jada","Claire","Audrey","Adriana","Mia","Margaret","Riley","Jocelyn","Gabriela","Sabrina","Miranda"];
 
     function getFontByName(name) {
       var retVal = null;
@@ -483,33 +487,44 @@
       return retVal;
     }
 
-    function refreshExamples() {
+    var currentNameIndex = 0;
+    function getNextPopularName () {
+      return popularNames[currentNameIndex++ % popularNames.length];
+    }
+
+    function refreshExamples(doScroll) {
+
       var newText = $("#name").val();
       var newSize = 36;
+      $(".preview").addClass("armedStyle");
+        $(".sample").addClass("armedStyle");
       if (!newText || newText.length ==0) {
-        newText = "Curliceu";
-        $(".styleHead").hide();
-        $(".material").hide();
-        $(".armedStyle").removeClass(".armedStyle");
+        newText = getNextPopularName();
         $.each($('.expanded'),function(index,val) {
               $(val).click();      
           });
 
       } else {
         $("#scripts").css("color","#303030").css("opacity",".8");
-        $(".styleHead").show();
-        $(".preview").addClass("armedStyle");
-        $(".sample").addClass("armedStyle");
+        //$(".styleHead").show();
+        
       }
       if (newText.length > 8) {
         newSize = 32-(4*(newText.length - 8));
       }
      $.each($(".preview"),function(index,val) {
-      $(val).text(newText);
+      $(this).fadeOut(750,function() {
+        $(this).text(newText)
+      }).fadeIn(750);
      // $(val).css("font-size",newSize + "px");
      });
      $(".dynamic").show();
-      $(document).scrollTop( $("#styleHeader").offset().top ); 
+     if (doScroll) {
+                $('html,body').animate({
+              scrollTop: $("#styleHeader").offset().top -25
+            }, 1000);
+     }
+      //$(document).scrollTop( $("#styleHeader").offset().top ); 
     }
 
       $(document).foundation();   
@@ -541,26 +556,35 @@
       refreshExamples();
 
         $(".preview").click(function() {
-          if ($("#name").val() && $("#name").val().length > 0) {
+             timer.pause();
+             if ($(this).hasClass("selectedScript")) {
+               $(".selectedScript").removeClass("selectedScript");
+               timer.play();
+               return;
+             }
             $(".selectedScript").removeClass("selectedScript");
+
             $(this).addClass("selectedScript");
             $("#fontName").html($(this).attr("id"));
             //$(this).text($(this).attr("id"));
 
-            $(".material").show();
-            $(document).scrollTop( $("#materialHeader").offset().top );
+            //$(".material").show();
+
+
+            $('html,body').animate({
+              scrollTop: $("#materialHeader").offset().top - 25
+            }, 1000);
             $("#orderName").text($("#name").val());
             $("#orderName").css('font-family',$(this).attr('id').replace("-"," ")).css('font-size','32px');
-
-          }
-
         });
 
         $(".sample").click(function() {
           $(".chosenMaterial").removeClass("chosenMaterial");
           $(this).addClass("chosenMaterial");
           $(".order").show();
-          $(document).scrollTop( $("#orderHeader").offset().top );
+          $('html,body').animate({
+              scrollTop: $("#orderHeader").offset().top -25
+            }, 1000);
           $("#orderMaterial").html("Material Name");
           $("#orderTotal").html("$65");
         });
@@ -589,17 +613,23 @@
           } 
         });
 
-        window.setInterval(function(){ 
+        /*window.setInterval(function(){ 
           var prompt = "Type your name";
           for (var i = 0; i < dots; i++) {
             prompt += ".";
           }
           $("#name").attr("placeholder",prompt);
-          
           dots = ++dots %4;
-        },1000);       
+        },1000); */
 
+        var timer = $.timer(function() {
+          if ($("#name").val().length == 0) {
+            refreshExamples();
+          }
+        },5000,true);      
       });
+
+        
 
       $(document).keypress(function(e) {
         if(e.which == 13) {
