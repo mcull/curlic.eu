@@ -217,234 +217,263 @@
     </div>
   </div>
 </div>
-<div class="row order sectionHead" style="padding-bottom:15px;" >
+<form data-abide>
+<div class="row order sectionHead" >
   <div class="large-12 columns sectionHead order" id="orderHeader" data-magellan-destination="order">
     <a name="order"></a>
     -- Order --
   </div>
   <div class="large-12 columns sectionHead subHead order" id="orderSubhead" >
-    <i class="fa fa-cc-visa"></i> <i class="fa fa-cc-mastercard"></i> <i class="fa fa-cc-amex"></i> <i class="fa fa-cc-discover"></i> <i class="fa fa-shield"></i> <i class="fa fa-lock"></i>
+    
   </div>
+</div>
+<div class="row panel" id="orderSummary">
   <div class="large-12 medium-12 small-12 columns">
-    <div class="orderFormTitle">Summary</div>
     <div class="orderForm" style="text-align:center;padding-top:5px;background-color:rgba(255,255,50,.5);height:44px;font-size:32px;">
       <div class="large-4 medium-4 small-4 columns summaryTitle" id="orderName"></div>
       <div class="large-4 medium-4 small-4 columns summaryTitle" id="orderMaterial"></div>
       <div class="large-4 medium-4 small-4 columns summaryTitle price" id="orderTotal"></div>
     </div>
   </div>
+</div>
 
-  <div class="large-6 medium-6 small-12 columns">
-    <div class="orderFormTitle">Shipping</div>
-    <div class="orderForm">
-      <div class="large-12 columns">
-          <label>Name
-            <input type="text" placeholder="John Doe" />
-          </label>
+<div class="row">
+  <div class="large-6 medium-6 small-12 columns"> 
+    <div class="large-12 columns">
+      <div class="orderFormTitle">
+        Payment
       </div>
-      <div class="large-8 medium-8 small-8 columns">
-          <label>Address
-            <input type="text" placeholder="123 Main Street" />
-          </label>
-      </div>
-      <div class="large-4 medium-4 small-4 columns">
-          <label>Apt
-            <input type="text" placeholder="#456" />
-          </label>
-      </div>
-      <div class="large-12 columns">
-          <label>City
-            <input type="text" placeholder="" />
-          </label>
-      </div>
-      <div class="large-4 medium-4 small-4 columns">
-          <label>State
-           <select name="state">
-              <option value="AL">AL</option>
-              <option value="AK">AK</option>
-              <option value="AZ">AZ</option>
-              <option value="AR">AR</option>
-              <option value="CA">CA</option>
-              <option value="CO">CO</option>
-              <option value="CT">CT</option>
-              <option value="DE">DE</option>
-              <option value="DC">DC</option>
-              <option value="FL">FL</option>
-              <option value="GA">GA</option>
-              <option value="HI">HI</option>
-              <option value="ID">ID</option>
-              <option value="IL">IL</option>
-              <option value="IN">IN</option>
-              <option value="IA">IA</option>
-              <option value="KS">KS</option>
-              <option value="KY">KY</option>
-              <option value="LA">LA</option>
-              <option value="ME">ME</option>
-              <option value="MD">MD</option>
-              <option value="MA">MA</option>
-              <option value="MI">MI</option>
-              <option value="MN">MN</option>
-              <option value="MS">MS</option>
-              <option value="MO">MO</option>
-              <option value="MT">MT</option>
-              <option value="NE">NE</option>
-              <option value="NV">NV</option>
-              <option value="NH">NH</option>
-              <option value="NJ">NJ</option>
-              <option value="NM">NM</option>
-              <option value="NY">NY</option>
-              <option value="NC">NC</option>
-              <option value="ND">ND</option>
-              <option value="OH">OH</option>
-              <option value="OK">OK</option>
-              <option value="OR">OR</option>
-              <option value="PA">PA</option>
-              <option value="RI">RI</option>
-              <option value="SC">SC</option>
-              <option value="SD">SD</option>
-              <option value="TN">TN</option>
-              <option value="TX">TX</option>
-              <option value="UT">UT</option>
-              <option value="VT">VT</option>
-              <option value="VA">VA</option>
-              <option value="WA">WA</option>
-              <option value="WV">WV</option>
-              <option value="WI">WI</option>
-              <option value="WY">WY</option>
-            </select>
-          </label>
-      </div>
-      <div class="large-8 medium-8 small-8 columns">
-          <label>Zip
-            <input type="text" pattern="\d*"s />
-          </label>
-      </div>
-      <div class="large-8 medium-8 small-8 columns">
-          <label>Delivery
-             <select name="state">
-              <option value="AL">Ground +$5</option>
-              <option value="AL">2-Day +$10</option>
-              <option value="AL">Next Day +$15</option>
-            </select>
-          </label>
-      </div>
-      <div class="large-4 medium-4 small-4 columns">
-
-      </div>
-
-    </div>
-
-  </div>
-  <div class="large-6 medium-6 small-12 columns">
-    <div class="orderFormTitle">Billing</div>
-    <div class="orderForm">
-      <div class="large-12 columns">
-          <label>Name
-            <input type="text" placeholder="John Doe" />
-          </label>
-      </div>
-      <div class="large-8 medium-8 small-8 columns">
-          <label>Address
-            <input type="text" placeholder="123 Main Street" />
-          </label>
-      </div>
-      <div class="large-4 medium-4 small-4 columns">
-          <label>Apt
-            <input type="text" placeholder="#456" />
-          </label>
-      </div>
-      <div class="large-12 columns">
-          <label>City
-            <input type="text" placeholder="" />
-          </label>
-      </div>
-      <div class="large-4 medium-4 small-4 columns">
-          <label>State
-           <select name="state">
-              <option value="AL">AL</option>
-              <option value="AK">AK</option>
-              <option value="AZ">AZ</option>
-              <option value="AR">AR</option>
-              <option value="CA">CA</option>
-              <option value="CO">CO</option>
-              <option value="CT">CT</option>
-              <option value="DE">DE</option>
-              <option value="DC">DC</option>
-              <option value="FL">FL</option>
-              <option value="GA">GA</option>
-              <option value="HI">HI</option>
-              <option value="ID">ID</option>
-              <option value="IL">IL</option>
-              <option value="IN">IN</option>
-              <option value="IA">IA</option>
-              <option value="KS">KS</option>
-              <option value="KY">KY</option>
-              <option value="LA">LA</option>
-              <option value="ME">ME</option>
-              <option value="MD">MD</option>
-              <option value="MA">MA</option>
-              <option value="MI">MI</option>
-              <option value="MN">MN</option>
-              <option value="MS">MS</option>
-              <option value="MO">MO</option>
-              <option value="MT">MT</option>
-              <option value="NE">NE</option>
-              <option value="NV">NV</option>
-              <option value="NH">NH</option>
-              <option value="NJ">NJ</option>
-              <option value="NM">NM</option>
-              <option value="NY">NY</option>
-              <option value="NC">NC</option>
-              <option value="ND">ND</option>
-              <option value="OH">OH</option>
-              <option value="OK">OK</option>
-              <option value="OR">OR</option>
-              <option value="PA">PA</option>
-              <option value="RI">RI</option>
-              <option value="SC">SC</option>
-              <option value="SD">SD</option>
-              <option value="TN">TN</option>
-              <option value="TX">TX</option>
-              <option value="UT">UT</option>
-              <option value="VT">VT</option>
-              <option value="VA">VA</option>
-              <option value="WA">WA</option>
-              <option value="WV">WV</option>
-              <option value="WI">WI</option>
-              <option value="WY">WY</option>
-            </select>
-          </label>
-      </div>
-      <div class="large-8 medium-8 small-8 columns">
-          <label>Zip
-            <input type="text" pattern="\d*"s />
-          </label>
-      </div>
-      <div class="large-8 medium-8 small-8 columns">
+      <div class="orderForm">
+        <div class="large-8 medium-8 small-8 columns">
           <label>Charge Card #
-            <input type="text" pattern="\d*"/>
-          </label>
-      </div>
-      <div class="large-4 medium-4 small-4 columns">
-          <label>CVC
             <input type="text" pattern="\d*" />
           </label>
+        </div>
+        <div class="large-4 medium-4 small-4 columns">
+          <label>CVC
+            <input type="text" pattern="\d*">
+          </label>
+        </div>
       </div>
-
     </div>
+    <div class="large-12 columns">
+      <div class="orderFormTitle">Billing</div>
+      <div class="orderForm">
+        <div class="large-12 columns">
+            <label>Name
+              <input type="text" name="billName" id="billName"/>
+            </label>
+        </div>
+        <div class="large-8 medium-8 small-8 columns">
+            <label>Address
+              <input type="text" name="billAddress1" id="billAddress1" />
+            </label>
+        </div>
+        <div class="large-4 medium-4 small-4 columns">
+            <label>Apt
+              <input type="text" name="billAddress2" id="billAddress2"/>
+            </label>
+        </div>
+        <div class="large-12 columns">
+            <label>City
+              <input type="text" name="billCity" id="billCity"/>
+            </label>
+        </div>
+        <div class="large-3 medium-3 small-3 columns">
+            <label>State
+             <select name="state" id="billState">
+                <option value="AL">AL</option>
+                <option value="AK">AK</option>
+                <option value="AZ">AZ</option>
+                <option value="AR">AR</option>
+                <option value="CA">CA</option>
+                <option value="CO">CO</option>
+                <option value="CT">CT</option>
+                <option value="DE">DE</option>
+                <option value="DC">DC</option>
+                <option value="FL">FL</option>
+                <option value="GA">GA</option>
+                <option value="HI">HI</option>
+                <option value="ID">ID</option>
+                <option value="IL">IL</option>
+                <option value="IN">IN</option>
+                <option value="IA">IA</option>
+                <option value="KS">KS</option>
+                <option value="KY">KY</option>
+                <option value="LA">LA</option>
+                <option value="ME">ME</option>
+                <option value="MD">MD</option>
+                <option value="MA">MA</option>
+                <option value="MI">MI</option>
+                <option value="MN">MN</option>
+                <option value="MS">MS</option>
+                <option value="MO">MO</option>
+                <option value="MT">MT</option>
+                <option value="NE">NE</option>
+                <option value="NV">NV</option>
+                <option value="NH">NH</option>
+                <option value="NJ">NJ</option>
+                <option value="NM">NM</option>
+                <option value="NY">NY</option>
+                <option value="NC">NC</option>
+                <option value="ND">ND</option>
+                <option value="OH">OH</option>
+                <option value="OK">OK</option>
+                <option value="OR">OR</option>
+                <option value="PA">PA</option>
+                <option value="RI">RI</option>
+                <option value="SC">SC</option>
+                <option value="SD">SD</option>
+                <option value="TN">TN</option>
+                <option value="TX">TX</option>
+                <option value="UT">UT</option>
+                <option value="VT">VT</option>
+                <option value="VA">VA</option>
+                <option value="WA">WA</option>
+                <option value="WV">WV</option>
+                <option value="WI">WI</option>
+                <option value="WY">WY</option>
+              </select>
+            </label>
+        </div>
+        <div class="large-4 medium-4 small-4 columns">
+            <label>Zip
+              <input type="text" pattern="\d*" name="billZip" id="billZip"/>
+            </label>
+        </div>
+        <div class="large-5 medium-5 small-5 columns"></div>
 
+        <div class="large-7 medium-7 small-7 columns">
+          <label><input type="radio" name="contactMethod" checked> Email
+              <input type="text" name="billEmail" id="billEmail" placeholder="you@email.com"/>
+            </label>
+        </div>
+        <div class="large-5 medium-5 small-5 columns">
+          <label><input type="radio" name="contactMethod"> SMS
+              <input type="text" pattern="\d*" name="billSMS" id="billSMS" placeholder="5551234567"/>
+            </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="large-6 medium-6 small-12 columns"> 
+    <div class="large-12 columns">
+      <div class="orderFormTitle">Delivery</div>
+      <div class="orderForm">
+        <div class="large-8 medium-7 small-7 columns">
+            <label>Method
+               <select name="state" style="font-family:'Nixie One'">
+                <option value="ground">Ground +$5</option>
+                <option value="2Day">2-Day +$10</option>
+                <option value="">Next Day +$15</option>
+              </select>
+            </label>
+        </div>
+        <div class="large-4 medium-5 small-5 columns" id="eta">
+            <i>Most orders ship in 48 hours</i>
+        </div>
+      </div>
+    </div> 
+    <div class="large-12 columns">
+      <div class="orderFormTitle">Shipping</div>
+      <div class="orderForm">
+        <div class="large-12 columns">
+            <label>Name
+              <input type="text" />
+            </label>
+        </div>
+        <div class="large-8 medium-8 small-8 columns">
+            <label>Address
+              <input type="text" />
+            </label>
+        </div>
+        <div class="large-4 medium-4 small-4 columns">
+            <label>Apt
+              <input type="text"/>
+            </label>
+        </div>
+        <div class="large-12 columns">
+            <label>City
+              <input type="text"  />
+            </label>
+        </div>
+        <div class="large-3 medium-3 small-3 columns">
+            <label>State
+             <select name="state">
+                <option value="AL">AL</option>
+                <option value="AK">AK</option>
+                <option value="AZ">AZ</option>
+                <option value="AR">AR</option>
+                <option value="CA">CA</option>
+                <option value="CO">CO</option>
+                <option value="CT">CT</option>
+                <option value="DE">DE</option>
+                <option value="DC">DC</option>
+                <option value="FL">FL</option>
+                <option value="GA">GA</option>
+                <option value="HI">HI</option>
+                <option value="ID">ID</option>
+                <option value="IL">IL</option>
+                <option value="IN">IN</option>
+                <option value="IA">IA</option>
+                <option value="KS">KS</option>
+                <option value="KY">KY</option>
+                <option value="LA">LA</option>
+                <option value="ME">ME</option>
+                <option value="MD">MD</option>
+                <option value="MA">MA</option>
+                <option value="MI">MI</option>
+                <option value="MN">MN</option>
+                <option value="MS">MS</option>
+                <option value="MO">MO</option>
+                <option value="MT">MT</option>
+                <option value="NE">NE</option>
+                <option value="NV">NV</option>
+                <option value="NH">NH</option>
+                <option value="NJ">NJ</option>
+                <option value="NM">NM</option>
+                <option value="NY">NY</option>
+                <option value="NC">NC</option>
+                <option value="ND">ND</option>
+                <option value="OH">OH</option>
+                <option value="OK">OK</option>
+                <option value="OR">OR</option>
+                <option value="PA">PA</option>
+                <option value="RI">RI</option>
+                <option value="SC">SC</option>
+                <option value="SD">SD</option>
+                <option value="TN">TN</option>
+                <option value="TX">TX</option>
+                <option value="UT">UT</option>
+                <option value="VT">VT</option>
+                <option value="VA">VA</option>
+                <option value="WA">WA</option>
+                <option value="WV">WV</option>
+                <option value="WI">WI</option>
+                <option value="WY">WY</option>
+              </select>
+            </label>
+        </div>
+        <div class="large-4 medium-3 small-3 columns">
+            <label>Zip
+              <input type="text" pattern="\d*"s />
+            </label>
+        </div>
+        <div class="large-5 medium-6 small-6 columns" id="total">
+          Total: <span="orderTotal">$70</span>
+        </div>
+        <div class="large-12 medium-12 small-12 columns" style="padding-top:9px">
+          <button class="button radius success large expand"> <i class="fa fa-lock"></i> Checkout </button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
 <div class="row">
     <div class="row" style="border-top: 1px solid #999;margin-top:25px;"> 
-      <div class="large-4 medium-4 small-4 columns" >
-        <h6><small>&copy;2014 Valley View Customs</small></h6>
-      </div>
-      <div class="large-4 medium-4 small-4 columns" style="text-align:center;">
-        <small>Proudly hand-made in Kentucky</small><img src="img/kentucky.png" height="32" width="32" >
-      </div>
-      <div class="large-4 medium-4 small-4 columns" style="text-align:right;">
-        <img src="img/Made-In-USA.png" width="35" height="32">
+      <div class="large-12 columns" style="text-align:center;">
+        <h6><small>Hand-made with <i class="fa fa-heart"></i> in Kentucky  &copy;2014 Curliceu <a href="privacy.html">Privacy Policy</a></small></h6>
       </div>
     </div>
   </div>
@@ -460,13 +489,8 @@
     <script type="text/javascript" id="snipcart" 
             src="https://app.snipcart.com/scripts/snipcart.js"
             data-api-key="OTBmZTVjYTgtZGMxMy00NzFmLTk1ODEtNDc3ZTdjOTMxMjU2"></script>
-    <script src="js/foundation.min.js"></script>
-
-    <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.slick/1.3.7/slick.min.js"></script>
-        
-  
+    <script src="js/foundation.min.js"></script>  
     <script src="js/math.uuid.js"></script>
-     <script src="js/blur.min.js"></script>
     <script src="js/jquery.timer.js"></script>
     <script src="js/app.js"></script>
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
@@ -574,7 +598,6 @@
             $('html,body').animate({
               scrollTop: $("#materialHeader").offset().top - 25
             }, 1000);
-            $("#orderName").text($("#name").val());
             $("#orderName").css('font-family',$(this).attr('id').replace("-"," ")).css('font-size','32px');
         });
 

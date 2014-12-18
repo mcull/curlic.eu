@@ -171,6 +171,22 @@ body {
   border-bottom:2px rgba(255,255,255,.3) solid;
 }
 
+#eta {
+  padding-top: 15px;
+  font-size:12px;
+  font-family:'Noto Sans';
+}
+
+#total {
+  padding-top: 30px;
+  font-size:24px;
+  font-family:'Special Elite';
+}
+
+option {
+  font-family:'Nixie One';
+}
+
 .highlighted {
   width:120px;
   margin:0px auto;
