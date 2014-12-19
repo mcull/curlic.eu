@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="100%" height="100%" viewBox="30 40 340 135">
+
+  <title>WebFont Template for SVG</title>
+  
+  <style type="text/css"><![CDATA[
+    @font-face {
+      font-family: 'Meddon';
+        src: local('Meddon'),
+           url("Meddon.svg") format('svg'),
+           url("fonts/Meddon.ttf") format('truetype');
+    }
+
+
+     text { 
+   		 font-family: "Meddon", serif;
+       font-size: 30px;
+       fill: black;
+       stroke-width: 0.5px;
+       text-anchor: middle;
+     }
+
+  ]]></style>
+
+  <text x="200" y="80">Jennifer!!</text>  
+
+</svg>
