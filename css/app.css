@@ -90,8 +90,8 @@ body {
 
 .photo {
   text-align:center;
-  margin-top:10px;
-  margin-bottom:10px;
+  margin-top:.5rem;
+  margin-bottom:.5rem;
   opacity: 0.75;
   border:0px;
  }
@@ -117,7 +117,7 @@ body {
 .preview {
   height:48px;
   text-align: center;
-  margin-bottom:25px;
+  margin-bottom:1.3rem;
 }
 
 .armedStyle {
@@ -127,7 +127,7 @@ body {
 .dynamic {
   display:none;
   position:relative;
-  padding-top:25px;
+  padding-top:1.3rem;
 }
 
 .selectedScript {
@@ -171,7 +171,7 @@ body {
 
 .sample {
   border:1px solid #cfcfcf;
-  margin:5px;
+  margin:.3em;
   height:66px;
   width:86px;
 }
@@ -204,7 +204,7 @@ body {
 }
 
 #orderHeader {
-  margin-top:25px;
+  margin-top:1.3rem;
 }
 
 .orderForm {
@@ -223,12 +223,16 @@ body {
 }
 
 #eta {
-  padding-top: 25px;
+  padding-top: 1.5rem;
   font-size:.66rem;
   //font-size:12px;
   color:#333;
   line-height: 14px;
   font-family:'Nixie One';
+}
+
+#checkout {
+  padding-top:.5rem;
 }
 
 #name {
@@ -238,16 +242,34 @@ body {
   height:64px;
 }
 
+#styleHeader {
+  padding-bottom:.8rem;
+}
+
+#materialHeader {
+  padding-bottom:.8rem;
+}
+
+#name-o {
+  padding-top:1.1rem;
+  margin-bottom:.8rem;
+}
+
+#footer {
+  border-top: 1px solid #999;
+  margin-top:1.4em;
+}
+
 #go {
   font-family:'Nixie One';
   font-size:2.66rem;
   //font-size:48px;
   height:64px;
-  padding-top:10px;"
+  padding-top:.5rem;
 }
 
 #total {
-  padding-top: 30px;
+  padding-top: 1.75rem;
   font-size:1.3rem;
   //font-size:24px;
   font-family:'Special Elite';
@@ -255,7 +277,7 @@ body {
 
 #summaryPanel {
   text-align:center;
-  padding-top:5px;
+  padding-top:.3rem;
   background-color:rgba(255,255,50,.5);
   height:44px;
   //font-size:32px;
@@ -270,7 +292,7 @@ select {
   width:120px;
   margin:0px auto;
   background-color:rgba(255,255,255,.3);
-  padding-bottom:15px;
+  padding-bottom:.9rem;
   -webkit-border-radius: 25px;
   -moz-border-radius: 25px;
   border-radius: 25px;
