@@ -1,11 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewbox="0 0 1000 1000">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewbox="0 0 300 200">
   <style type="text/css"><![CDATA[text { 
     font-family: "{{font}}", serif;
-    font-size: 72px;
+    font-size: 120px;
     fill: black;
     letter-spacing: {{spacing}}px;
     text-anchor: start;
     }
     ]]></style>
-  <text x="25" y="75">{{text}}</text> 
+  <text x="25" y="125">{{text}}</text> 
 </svg>
