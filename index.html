@@ -7,12 +7,14 @@
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/app.css" />
     <link rel="stylesheet" href="css/ribbon.css" />
+    <link rel="stylesheet" href="css/fonts/stylesheet.css" />
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <!--<link type="text/css" id="snipcart-theme" href="https://app.snipcart.com/themes/base/snipcart.css" rel="stylesheet" />-->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.3.7/slick.css"/>
-    <link href='http://fonts.googleapis.com/css?family=Rochester|Noto+Sans|Shadows+Into+Light+Two|Yellowtail|Source+Code+Pro|Nixie+One' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Noto+Sans|Source+Code+Pro|Nixie+One' rel='stylesheet' type='text/css'>
     <script src="js/vendor/modernizr.js"></script>
-    <link href='http://fonts.googleapis.com/css?family=Bilbo+Swash+Caps|Rouge+Script|Yellowtail|Give+You+Glory|Montez|Lily+Script+One|Oleo+Script+Swash+Caps|Petit+Formal+Script|Oleo+Script|Yesteryear|Alex+Brush|Grand+Hotel|Tangerine|Great+Vibes|Pacifico|Dancing+Script|Playball|Pinyon+Script|Special+Elite|Cookie|Rochester|Sacramento|Slackey|Leckerli+One|Press+Start+2P|Arizonia|Over+the+Rainbow|Italianno|Norican|Dawning+of+a+New+Day|Meddon' rel='stylesheet' type='text/css'>
+
+    <link href='http://fonts.googleapis.com/css?family=Lily+Script+One|Yellowtail|Oleo+Script+Swash+Caps|Yesteryear|Pacifico|Dancing+Script|Special+Elite|Slackey|Norican' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Fenix|Headland+One|Holtwood+One+SC|Ovo|Marcellus|Sanchez|Alegreya+SC' rel='stylesheet' type='text/css'>
   </head>
   <body>
@@ -497,7 +499,31 @@
     <script>
     var guid;
     var dots = 1;
-    var fonts = [{"name":"Meddon","fontSize":"1.1"},{"name":"Sacramento","fontSize":".75"},{"name":"Bilbo Swash Caps","letterSpacing":"-2px","fontSize":".75"},{"name":"Arizonia"},{"name":"Yellowtail"},{"name":"Pinyon Script"},{"name":"Playball"},{"name":"Lily Script One"},{"name":"Oleo Script Swash Caps","letterSpacing":"-2px","fontSize":".9"},{"name":"Petit Formal Script"},{"name":"Alex Brush"},{"name":"Dancing Script"},{"name":"Norican"},{"name":"Yesteryear"},{"name":"Pacifico"},{"name":"Grand Hotel"},{"name":"Great Vibes"},{"name":"Rochester"},{"name":"Special Elite","letterSpacing":"-4px"},{"name":"Slackey","letterSpacing":"-3px"},{"name":"Press Start 2P","fontSize":"1.2","letterSpacing":"-3px"},{"name":"Italianno","fontSize":".6",},{"name":"Rouge Script","letterSpacing":"-2px","fontSize":".75"},{"name":"Dawning of a New Day","fontSize":".7"}];
+
+    var fonts = [ 
+                  {"name":"acryle_script_personal_useRg","ttfName":"Acryle Script Personal Use","style":"font-size:2em;"},
+                  {"name":"Yellowtail"},
+                  {"name":"Lily Script One"},
+                  {"name":"Oleo Script Swash Caps","style":"letter-spacing:-2px:font-size:1.3em"},
+                  {"name":"Norican"},
+                  {"name":"Yesteryear"},
+                  {"name":"Pacifico"},
+                  {"name":"Special Elite","style":"letter-spacing:-8px;font-size:1.3em"},
+                  {"name":"Slackey","style":"letter-spacing:-5px"},
+                  {"name":"da_streetsregular","ttfName":"Da Streets","style":"font-size:1.3em;letter-spacing:-3px"},
+                  {"name":"Dancing Script","ttfName":"Dancing Script Bold","style":"font-size:1.3em;font-weight:bold"},
+                  {"name":"alfa_slab_oneregular","ttfName":"Alfa Slab One","style":"letter-spacing:-3px"},
+                  {"name":"impregnable_personal_use_onRg","ttfName":"Impregnable Personal Use Only","style":"font-size:2em;"},
+                  {"name":"japanese_brushregular","ttfName":"Japanese Brush","style":"letter-spacing:-5px"},
+                  {"name":"oldnewspapertypesregular","ttfName":"OldNewspaperTypes","style":"letter-spacing:-4px"},
+                  {"name":"mastoc_personal_use_onlyRg","ttfName":"Mastoc Personal Use Only","style":"font-size:1.3em"},
+                  {"name":"olivierregular","ttfName":"olivier","style":"font-size:1.2em"},
+                  {"name":"intrique_script_personal_usRg","ttfName":"Intrique Script Personal Use","style":"font-size:1.5em"},
+                  {"name":"vonfontregular","ttfName":"VonFont","style":"font-size:2.2em;letter-spacing:-2px"},
+                  {"name":"motion_picture_personal_useRg","ttfName":"Motion Picture Personal Use","style":"font-size:1.4em;letter-spacing:-2px"},
+        
+                  {"name":"retrohandretrohand","ttfName":"RETROHAND","style":"letter-spacing:-3px"}
+                  ];
     var popularNames=["Hannah","Emily","Sarah","Madison","Brianna","Kaylee","Kaitlyn","Hailey","Alexis","Elizabeth","Taylor","Lauren","Ashley","Katherine","Jessica","Anna","Samantha","Makayla","Kayla","Madeline","Jasmine","Alyssa","Abigail","Olivia","Brittany","Nicole","Destiny","Mackenzie","Emma","Jennifer","Rachel","Sydney","Megan","Grace","Alexandra","Morgan","Savannah","Victoria","Sophia","Natalie","Amanda","Stephanie","Chloe","Allison","Rebecca","Jacqueline","Julia","Cheyenne","Amber","Erica","Isabella","Kylie","Christina","Brooke","Bailey","Maria","Diana","Danielle","Kelsey","Jordan","Andrea","Vanessa","Melissa","Kimberly","Sierra","Maya","Michelle","Caroline","Arianna","Zoe","Leslie","Isabel","Gabrielle","Faith","Lindsey","Erin","Kiara","Jenna","Casey","Paige","Mary","Alicia","Cameron","Alexandria","Molly","Melanie","Katie","Courtney","Trinity","Jada","Claire","Audrey","Adriana","Mia","Margaret","Riley","Jocelyn","Gabriela","Sabrina","Miranda"];
 
     function getFontByName(name) {
@@ -558,24 +584,23 @@
         $.each(fonts,function(index,val) {
           var id = val.name.replace(" ", "-");
           var fontSpacing = "";
-          var fontSize = 32;
 
-          $("#scripts").append("<div  id='" 
-                                    + id 
-                                    + "' class='preview large-3 medium-4 small-6 columns' style='font-family:\"" 
-                                    + val.name
-                                    + "\";"
-                                    + ((val.letterSpacing) ? "letter-spacing:"
-                                                            +  val.letterSpacing
-                                                            + ";"
-                                                            : "")
-                                    + "font-size:" 
-                                    + ((val.fontSize) ? parseInt(fontSize/parseFloat(val.fontSize))  
-                                                            : fontSize)
-                                    + "px;"
-                                    + "' alt='"
-                                    + val.name
-                                    + "'></div>");
+          var scriptDiv = "<div  id='" 
+                          + id 
+                          + "' class='preview large-3 medium-4 small-6 columns' "
+                          + "style='font-family:\""
+                          + val.name
+                          + "\";";
+          if (val.style) {
+            scriptDiv     += val.style
+          }
+                          + "' ";
+  
+          scriptDiv       += "'alt='"
+                          + val.name
+                          + "'></div>";
+
+          $("#scripts").append(scriptDiv);
         });
       refreshExamples();
 
