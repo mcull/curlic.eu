@@ -16,6 +16,7 @@
 
     <link href='http://fonts.googleapis.com/css?family=Lily+Script+One|Yellowtail|Oleo+Script+Swash+Caps|Yesteryear|Pacifico|Dancing+Script|Special+Elite|Slackey|Norican' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Fenix|Headland+One|Holtwood+One+SC|Ovo|Marcellus|Sanchez|Alegreya+SC' rel='stylesheet' type='text/css'>
+
   </head>
   <body>
 
@@ -219,7 +220,6 @@
     </div>
   </div>
 </div>
-<form data-abide>
 <div class="row order sectionHead" >
   <div class="large-12 columns sectionHead order" id="orderHeader">
     <a name="order"></a>
@@ -229,30 +229,32 @@
     
   </div>
 </div>
-<div class="row panel" id="orderSummary">
+<div class="row orderForm" id="orderSummary">
   <div class="large-12 medium-12 small-12 columns">
-    <div class="orderForm" id="summaryPanel" >
-      <div class="large-3 medium-3 small-3 columns summaryTitle">
+      <div class="large-4 medium-4 small-4 columns summaryTitle" id="orderNamePanel">
         <b>Text</b><br><span id="orderName"></span>
       </div>
-      <div class="large-3 medium-3 small-3 columns summaryTitle">
+      <div class="large-4 medium-4 small-4 columns summaryTitle" id="orderMaterialPanel">
         <b>Material</b><br><span id="orderMaterial"></span>
       </div>
-      <div class="large-3 medium-3 small-3 columns summaryTitle">
+      <!--
+      <div class="large-3 medium-4 show-for-large-up columns summaryTitle">
         <b>Chain</b>
         <div id="chainType">
-          <input type="radio" name="chainLength" value="16" style="margin:.2rem"> 16" Silver<br>
-          <input type="radio" name="chainLength" value="18" style="margin:.2rem" checked> 18" Silver<br>
-          <input type="radio" name="chainLength" value="24" style="margin:.2rem"> 24" Silver (+$5)
+          <input type="radio" name="chainLength" value="16" style="margin:.2rem"> 16" <br>
+          <input type="radio" name="chainLength" value="18" style="margin:.2rem" checked> 18" <br>
+          <input type="radio" name="chainLength" value="24" style="margin:.2rem"> 24" <span style="font-size:.75em">+$5</span>
           </select>
         </div>
-      </div>
-      <div class="large-3 medium-3 small-3 columns summaryTitle price" id="orderSubtotalContainer">
+      </div> -->
+      <div class="large-4 medium-4 small-4 columns summaryTitle price" id="orderSubtotalContainer">
         <b>Subtotal</b><br><span id="orderSubtotal"></span>
       </div>
-    </div>
+  
   </div>
 </div>
+
+<form action="order/" method="POST" id="payment-form">
 
 <div class="row">
   <div class="large-6 medium-6 small-12 columns"> 
@@ -263,14 +265,29 @@
       <div class="orderForm">
         <div class="large-8 medium-8 small-8 columns">
           <label>Charge Card #
-            <input type="text" pattern="\d*" />
+            <input type="text" pattern="\d*" size="20" data-stripe="number"/>
           </label>
         </div>
         <div class="large-4 medium-4 small-4 columns">
           <label>CVC
-            <input type="text" pattern="\d*">
+            <input type="text" pattern="\d*" size="4" data-stripe="cvc">
           </label>
         </div>
+        <div class="large-4 medium-4 small-4 columns">
+          <label>Expiration
+            <select data-stripe="exp-month"/>
+              <option value="01">JAN</option>
+            </select>
+          </label>
+        </div>
+        <div class="large-4 medium-4 small-4 columns">
+          <label>&nbsp;
+             <select data-stripe="exp-year"/>
+              <option value="2015">2015</option>
+            </select>
+          </label>
+        </div>
+        <div class="large-4 medium-4 small-4 columns"></div>
       </div>
     </div>
     <div class="large-12 columns">
@@ -361,12 +378,12 @@
         <div class="large-5 medium-5 small-5 columns"></div>
 
         <div class="large-7 medium-7 small-7 columns">
-          <label><input type="radio" name="contactMethod" checked> Email
+          <label>Email
               <input type="text" name="billEmail" id="billEmail" placeholder="you@email.com"/>
             </label>
         </div>
         <div class="large-5 medium-5 small-5 columns">
-          <label><input type="radio" name="contactMethod"> SMS
+          <label>SMS <small>optional</small>
               <input type="text" pattern="\d*" name="billSMS" id="billSMS" placeholder="5551234567"/>
             </label>
         </div>
@@ -396,27 +413,27 @@
       <div class="orderForm">
         <div class="large-12 columns">
             <label>Name
-              <input type="text" />
+              <input type="text" name="shipName" id="shipName"/>
             </label>
         </div>
         <div class="large-8 medium-8 small-8 columns">
             <label>Address
-              <input type="text" />
+              <input type="text" name="shipAddress" id="shipAddress" />
             </label>
         </div>
         <div class="large-4 medium-4 small-4 columns">
             <label>Apt
-              <input type="text"/>
+              <input type="text" name="shipAddress2" id="shipAddress2"/>
             </label>
         </div>
         <div class="large-12 columns">
             <label>City
-              <input type="text"  />
+              <input type="text"  name="shipCity" id="shipCity" />
             </label>
         </div>
         <div class="large-3 medium-3 small-3 columns">
             <label>State
-             <select name="state">
+             <select name="shipState" id="shipState">
                 <option value="AL">AL</option>
                 <option value="AK">AK</option>
                 <option value="AZ">AZ</option>
@@ -473,21 +490,24 @@
         </div>
         <div class="large-4 medium-3 small-3 columns">
             <label>Zip
-              <input type="text" pattern="\d*"s />
+              <input type="text" pattern="\d*"s name="shipZip" id="shipZip" />
             </label>
         </div>
         <div class="large-5 medium-6 small-6 columns" id="total">
           Total: <span id="orderTotal">$70</span>
         </div>
         <div class="large-12 medium-12 small-12 columns" id="checkout">
-          <button class="button radius success large expand"> <i class="fa fa-lock"></i> Checkout </button>
+          <button type="submit" class="button radius success large expand"> <i class="fa fa-lock"></i> Checkout </button>
+        </div>
+        <div class="large-12 medium-12 small-12 columns payment-errors">
+
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
+</form>
+ 
 <div class="row" id="footer"> 
   <div class="large-12 columns" style="text-align:center;">
     <h6><small>Hand-made with <i class="fa fa-heart"></i> in Kentucky  &copy;2014 Curliceu <a href="privacy.html">Privacy Policy</a></small></h6>
@@ -503,256 +523,12 @@
     </div>
 
     <script src="js/vendor/jquery.js"></script>
-    <script type="text/javascript" id="snipcart" 
-            src="https://app.snipcart.com/scripts/snipcart.js"
-            data-api-key="OTBmZTVjYTgtZGMxMy00NzFmLTk1ODEtNDc3ZTdjOTMxMjU2"></script>
     <script src="js/foundation.min.js"></script>  
     <script src="js/math.uuid.js"></script>
     <script src="js/jquery.timer.js"></script>
     <script src="js/app.js"></script>
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-    <script>
-    var guid;
-    var dots = 1;
-    var materialCost = 0;
-    var chainCost = 0;
-    var shippingCost = 0;
+    <script src="js/curliceu.js"></script>
 
-    var fonts = [ 
-                  {"name":"acryle_script_personal_useRg","ttfName":"Acryle Script Personal Use","style":"font-size:2em;"},
-                  {"name":"Yellowtail"},
-                  {"name":"Lily Script One"},
-                  {"name":"Oleo Script Swash Caps","style":"letter-spacing:-2px:font-size:1.3em"},
-                  {"name":"Norican"},
-                  {"name":"Yesteryear"},
-                  {"name":"Pacifico"},
-                  {"name":"Special Elite","style":"letter-spacing:-8px;font-size:1.3em"},
-                  {"name":"Slackey","style":"letter-spacing:-5px"},
-                  {"name":"da_streetsregular","ttfName":"Da Streets","style":"font-size:1.3em;letter-spacing:-3px"},
-                  {"name":"Dancing Script","ttfName":"Dancing Script Bold","style":"font-size:1.3em;font-weight:bold"},
-                  {"name":"alfa_slab_oneregular","ttfName":"Alfa Slab One","style":"letter-spacing:-3px"},
-                  {"name":"impregnable_personal_use_onRg","ttfName":"Impregnable Personal Use Only","style":"font-size:2em;"},
-                  {"name":"japanese_brushregular","ttfName":"Japanese Brush","style":"letter-spacing:-5px"},
-                  {"name":"oldnewspapertypesregular","ttfName":"OldNewspaperTypes","style":"letter-spacing:-4px"},
-                  {"name":"mastoc_personal_use_onlyRg","ttfName":"Mastoc Personal Use Only","style":"font-size:1.3em"},
-                  {"name":"olivierregular","ttfName":"olivier","style":"font-size:1.2em"},
-                  {"name":"intrique_script_personal_usRg","ttfName":"Intrique Script Personal Use","style":"font-size:1.5em"},
-                  {"name":"vonfontregular","ttfName":"VonFont","style":"font-size:2.2em;letter-spacing:-2px"},
-                  {"name":"motion_picture_personal_useRg","ttfName":"Motion Picture Personal Use","style":"font-size:1.4em;letter-spacing:-2px"},
-        
-                  {"name":"retrohandretrohand","ttfName":"RETROHAND","style":"letter-spacing:-3px"}
-                  ];
-    var popularNames=["Hannah","Emily","Sarah","Madison","Brianna","Kaylee","Kaitlyn","Hailey","Alexis","Elizabeth","Taylor","Lauren","Ashley","Katherine","Jessica","Anna","Samantha","Makayla","Kayla","Madeline","Jasmine","Alyssa","Abigail","Olivia","Brittany","Nicole","Destiny","Mackenzie","Emma","Jennifer","Rachel","Sydney","Megan","Grace","Alexandra","Morgan","Savannah","Victoria","Sophia","Natalie","Amanda","Stephanie","Chloe","Allison","Rebecca","Jacqueline","Julia","Cheyenne","Amber","Erica","Isabella","Kylie","Christina","Brooke","Bailey","Maria","Diana","Danielle","Kelsey","Jordan","Andrea","Vanessa","Melissa","Kimberly","Sierra","Maya","Michelle","Caroline","Arianna","Zoe","Leslie","Isabel","Gabrielle","Faith","Lindsey","Erin","Kiara","Jenna","Casey","Paige","Mary","Alicia","Cameron","Alexandria","Molly","Melanie","Katie","Courtney","Trinity","Jada","Claire","Audrey","Adriana","Mia","Margaret","Riley","Jocelyn","Gabriela","Sabrina","Miranda"];
-
-    function getFontByName(name) {
-      var retVal = null;
-      $.each(fonts,function(index,value) {
-        if (value.name == name) {
-          retVal = value;
-          return false;
-        }
-      });
-      return retVal;
-    }
-
-    function getMaterialCost(element) {
-      var retVal = parseInt(0);
-      $.each($(element).parents(".material"), function(index,value) {
-        if ($(value).attr("rel-price")) {
-          retVal += parseInt($(value).attr("rel-price"));
-        }
-      });
-      return retVal;
-    }
-    function getMaterialName(element) {
-      var retVal = "";
-      $.each($(element).parents(".material"),function(index,val) {
-        retVal += $(this).attr("rel-materialType");
-        retVal += " ";
-      });
-      return retVal;
-    }
-
-    var currentNameIndex = 0;
-    function getNextPopularName () {
-      return popularNames[currentNameIndex++ % popularNames.length];
-    }
-
-
-    function getChainCost() {
-      var retVal = 0;
-      if ($("input[type='radio'][name='chainLength']:checked").val() == "24") {
-        retVal = 5;
-      } 
-      return retVal;
-    }
-
-    function getSubtotal() {
-      return getMaterialCost($(".chosenMaterial").first()) + getChainCost();
-    }
-
-    function getShippingCost() {
-      console.log($("#shippingMethod option:selected"));
-      return parseInt($("#shippingMethod option:selected").attr("rel-price"));
-    }
-
-    function updateOrderTotal() {
-      var total =  getSubtotal() + getShippingCost();
-      $("#orderTotal").html("$" + total);
-      console.log(total);
-    }
-
-    function updateOrderSubTotal() {
-      $("#orderSubtotal").html("$" + getSubtotal());
-    }
-
-    function refreshExamples(doScroll) {
-
-      var newText = $("#name").val();
-      var newSize = 36;
-      $(".preview").addClass("armedStyle");
-        $(".sample").addClass("armedStyle");
-      if (!newText || newText.length ==0) {
-        newText = getNextPopularName();
-        $.each($('.expanded'),function(index,val) {
-              $(val).click();      
-          });
-
-      } else {
-        $("#scripts").css("color","#303030").css("opacity",".8");
-        //$(".styleHead").show();
-        
-      }
-      if (newText.length > 8) {
-        newSize = 32-(4*(newText.length - 8));
-      }
-     $.each($(".preview"),function(index,val) {
-      $(this).fadeOut(750,function() {
-        $(this).text(newText)
-      }).fadeIn(750);
-     // $(val).css("font-size",newSize + "px");
-     });
-     $(".dynamic").show();
-     if (doScroll) {
-                $('html,body').animate({
-              scrollTop: $("#styleHeader").offset().top -25
-            }, 1000);
-     }
-      //$(document).scrollTop( $("#styleHeader").offset().top ); 
-    }
-
-      $(document).foundation();   
-      $(document).ready(function() {
-
-        //initSlick(); 
-        $.each(fonts,function(index,val) {
-          var id = val.name.replace(" ", "-");
-          var fontSpacing = "";
-
-          var scriptDiv = "<div  id='" 
-                          + id 
-                          + "' class='preview large-3 medium-4 small-6 columns' "
-                          + "style='font-family:\""
-                          + val.name
-                          + "\";";
-          if (val.style) {
-            scriptDiv     += val.style
-          }
-                          + "' ";
-          scriptDiv       += "'alt='"
-                          + val.name
-                          + "'></div>";
-
-          $("#scripts").append(scriptDiv);
-        });
-      refreshExamples();
-
-        $(".preview").click(function() {
-             timer.pause();
-             if ($(this).hasClass("selectedScript")) {
-               $(".selectedScript").removeClass("selectedScript");
-               timer.play();
-               return;
-             }
-            $(".selectedScript").removeClass("selectedScript");
-
-            $(this).addClass("selectedScript");
-            $("#fontName").html($(this).attr("id"));
-            //$(this).text($(this).attr("id"));
-
-            //$(".material").show();
-
-
-            $('html,body').animate({
-              scrollTop: $("#materialHeader").offset().top - 25
-            }, 1000);
-            $("#orderName").css('font-family',$(this).attr('id').replace("-"," "));
-            $("#orderName").html($(this).html());
-        });
-
-        $(".sample").click(function() {
-          $(".chosenMaterial").removeClass("chosenMaterial");
-          $(this).addClass("chosenMaterial");
-          $(".order").show();
-          $('html,body').animate({
-              scrollTop: $("#orderHeader").offset().top -25
-            }, 1000);
-          $("#orderMaterial").html(getMaterialName(this));
-          materialCost = getMaterialCost(this);
-          updateOrderSubTotal();
-          updateOrderTotal();
-          $("#orderSummary").show();
-        });
-
-        $(".menuToggle").click(function() {
-          var isExpanded = !$(this).hasClass('expanded'); //it *was* expanded before the click
-          var ourList = this;
-          $.each($('.expanded'),function(index,val) {
-            if (val != ourList) {
-              $(val).click();
-            }
-          });
-          $(this).toggleClass('expanded',isExpanded);
-          $(this).find(".fa").toggleClass("fa-minus-square-o",isExpanded);
-          $(this).find(".fa").toggleClass("fa-plus-square-o",!isExpanded);
-          $(this).parent().find(".expandedList").toggle(isExpanded);
-          $(this).parent().find(".expandedList").toggleClass("highlighted",isExpanded);
-          $(this).parent().find(".exemplar").toggle(!isExpanded);
-
-        });
-
-        $("#name").on("input",function() {
-          if ($("#name").val().length ==0) {
-            //$(".dynamic").hide();
-            refreshExamples();
-          } 
-        });
-
-        $("input[name=chainLength]:radio").change(function () {
-          
-          updateOrderTotal();
-          updateOrderSubTotal();
-        });
-
-        var timer = $.timer(function() {
-          if ($("#name").val().length == 0) {
-            refreshExamples();
-          }
-        },5000,true);      
-      });
-        
-      $(document).keypress(function(e) {
-        if(e.which == 13) {
-          event.stopPropagation();
-          refreshExamples($("#name").val());
-        }
-      });
-
-    function SVG(tag)
-    {
-       return document.createElementNS('http://www.w3.org/2000/svg', tag);
-    }
-
-    </script>
   </body>
 </html>
