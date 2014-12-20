@@ -55,7 +55,7 @@
       </div>
     </div>
     <div class="row" >
-      <div class="large-4 medium-4 small-4 columns material"  style="text-align:center;" rel-materialType="Acrylic">
+      <div class="large-4 medium-4 small-4 columns material"  style="text-align:center;" rel-materialType="Acrylic" rel-price="45">
         <span class="materialName">Acrylic</span> <span class="price">$45</span>
         <div id="glitterHead" class="expando">
           <div class="menuToggle"><i class="fa fa-plus-square-o"></i> Glitter<br>
@@ -179,7 +179,7 @@
           </div>
         </div>
       </div>
-    <div class="large-4 medium-4 small-4 columns material" style="text-align:center;" rel-materialType="Rubber">
+    <div class="large-4 medium-4 small-4 columns material" style="text-align:center;" rel-materialType="Rubber" rel-price="55">
     <span class="materialName"><i class="fa fa-recycle" style="color:green;"></i>Rubber</span> <span class="price">$55</span>
     <div class="material" rel-materialType="Black">
     Black<br>
@@ -198,7 +198,7 @@
     <img class="sample" src="http://www.rubbercal.com/images_item/sheet_rubber/Recycled_Rubber_Thickness_Medium.jpg" width="86" height="66"/>
     </div>
   </div>
-  <div class="large-4 medium-4 small-4 columns material" style="text-align:center;" rel-materialType="Wood">
+  <div class="large-4 medium-4 small-4 columns material" style="text-align:center;" rel-materialType="Wood" rel-price="65">
     <span class="materialName">Wood</span> <span class="price">$65</span>
     <div class="material" rel-materialType="Baltic Birch">
       Baltic Birch<br>
@@ -379,10 +379,10 @@
       <div class="orderForm">
         <div class="large-8 medium-7 small-7 columns">
             <label>Method
-               <select name="state" style="font-family:'Nixie One'">
-                <option value="ground">Ground +$5</option>
-                <option value="2Day">2-Day +$10</option>
-                <option value="">Next Day +$15</option>
+               <select name="shippingMethod" id="shippingMethod" style="font-family:'Nixie One'">
+                <option value="ground" rel-price="5">Ground +$5</option>
+                <option value="2Day" rel-price="10">2-Day +$10</option>
+                <option value="overnight" rel-price="15">Next Day +$15</option>
               </select>
             </label>
         </div>
@@ -477,7 +477,7 @@
             </label>
         </div>
         <div class="large-5 medium-6 small-6 columns" id="total">
-          Total: <span="orderTotal">$70</span>
+          Total: <span id="orderTotal">$70</span>
         </div>
         <div class="large-12 medium-12 small-12 columns" id="checkout">
           <button class="button radius success large expand"> <i class="fa fa-lock"></i> Checkout </button>
@@ -555,6 +555,15 @@
       return retVal;
     }
 
+    function getMaterialCost(element) {
+      var retVal = parseInt(0);
+      $.each($(element).parents(".material"), function(index,value) {
+        if ($(value).attr("rel-price")) {
+          retVal += parseInt($(value).attr("rel-price"));
+        }
+      });
+      return retVal;
+    }
     function getMaterialName(element) {
       var retVal = "";
       $.each($(element).parents(".material"),function(index,val) {
@@ -569,14 +578,32 @@
       return popularNames[currentNameIndex++ % popularNames.length];
     }
 
+
+    function getChainCost() {
+      var retVal = 0;
+      if ($("input[type='radio'][name='chainLength']:checked").val() == "24") {
+        retVal = 5;
+      } 
+      return retVal;
+    }
+
+    function getSubtotal() {
+      return getMaterialCost($(".chosenMaterial").first()) + getChainCost();
+    }
+
+    function getShippingCost() {
+      console.log($("#shippingMethod option:selected"));
+      return parseInt($("#shippingMethod option:selected").attr("rel-price"));
+    }
+
     function updateOrderTotal() {
-      var total = materialCost + chainCost + shippingCost;
+      var total =  getSubtotal() + getShippingCost();
       $("#orderTotal").html("$" + total);
+      console.log(total);
     }
 
     function updateOrderSubTotal() {
-      var subtotal = materialCost + chainCost;
-      $("#orderSubtotal").html("$" + subtotal);
+      $("#orderSubtotal").html("$" + getSubtotal());
     }
 
     function refreshExamples(doScroll) {
@@ -671,10 +698,10 @@
               scrollTop: $("#orderHeader").offset().top -25
             }, 1000);
           $("#orderMaterial").html(getMaterialName(this));
+          materialCost = getMaterialCost(this);
           updateOrderSubTotal();
           updateOrderTotal();
           $("#orderSummary").show();
-          console.log(getMaterialName(this));
         });
 
         $(".menuToggle").click(function() {
@@ -701,14 +728,11 @@
           } 
         });
 
-        /*window.setInterval(function(){ 
-          var prompt = "Type your name";
-          for (var i = 0; i < dots; i++) {
-            prompt += ".";
-          }
-          $("#name").attr("placeholder",prompt);
-          dots = ++dots %4;
-        },1000); */
+        $("input[name=chainLength]:radio").change(function () {
+          
+          updateOrderTotal();
+          updateOrderSubTotal();
+        });
 
         var timer = $.timer(function() {
           if ($("#name").val().length == 0) {
@@ -716,9 +740,7 @@
           }
         },5000,true);      
       });
-
         
-
       $(document).keypress(function(e) {
         if(e.which == 13) {
           event.stopPropagation();
