@@ -108,9 +108,9 @@ var guid;
       $(".sample").addClass("armedStyle");
       if (!newText || newText.length ==0) {
         newText = getNextPopularName();
-        $.each($('.expanded'),function(index,val) {
+        /*$.each($('.expanded'),function(index,val) {
               $(val).click();      
-          });
+          });*/
 
       } else {
         $("#scripts").css("color","#303030").css("opacity",".8");
@@ -201,7 +201,8 @@ var guid;
           $("#orderSummary").show();
         });
 
-        $(".menuToggle").click(function() {
+        $(".menuToggle").click(function(event) {
+          console.log(event);
           var isExpanded = !$(this).hasClass('expanded'); //it *was* expanded before the click
           var ourList = this;
           $.each($('.expanded'),function(index,val) {
@@ -237,7 +238,7 @@ var guid;
           }
         },5000,true);    
 
-    $(document).keypress(function(e) {
+      $(document).keypress(function(e) {
         if(e.which == 13) {
           event.stopPropagation();
           refreshExamples($("#name").val());

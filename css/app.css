@@ -112,6 +112,10 @@ body {
   box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.1);
 }
 
+.material {
+  position:relative;
+  //height:150px;
+}
 .materialName {
   font-family: 'Source Code Pro';
 }
@@ -176,7 +180,7 @@ body {
 .sectionHead {
   color:black;
   text-align:center;
-  font-family:'Nixie One';
+  //font-family:'Nixie One';
   //display:none;
   font-size:1.75rem;
   //font-size:32px;
@@ -184,6 +188,32 @@ body {
 
 .selectedScript {
   color:yellow;
+}
+
+.soldOut {
+  border:1px solid #cfcfcf;
+  margin:.3em;
+  height:66px;
+  width:86px;
+  opacity:.9;
+}
+.soldOutContainer {
+  width:100%;
+  position:absolute;
+  bottom:35px;
+}
+.soldOutLabel {
+  font-family: 'Source Code Pro';
+  color:white;
+  position:relative;
+  
+  width:100px;
+  background-color:red;
+  text-align: center;
+  margin:0px auto;
+  line-height: .65rem;
+  height:.65rem;
+  font-size:.55rem;
 }
 
 .subHead {

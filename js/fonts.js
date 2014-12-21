@@ -1,4 +1,4 @@
-[ 
+var fonts = [ 
                   {"name":"acryle_script_personal_useRg","fontSize":".6"},
                   {"name":"Yellowtail"},
                   {"name":"Lily Script One"},
