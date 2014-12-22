@@ -41,11 +41,13 @@ $customer = Stripe_Customer::create(array(
 
 try {
 	$charge = Stripe_Charge::create(array(
-	  "amount" => $price, # amount in cents, again
-	  "currency" => "usd",
-	  "customer" => $customer->id,
-	  "description" => "Charge for Curliceu")
-	);
+		"amount" => $price,
+		"currency" => "usd",
+		"card" => $token, 
+		"description" => "Charge for Curliceu"
+	));
+
+
 	sendEmailToPrinter($charge);
 	persistOrder($charge);
 
