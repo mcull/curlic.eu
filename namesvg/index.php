@@ -12,6 +12,7 @@ $svg = file_get_contents('template.svg');
 $svg = str_replace("{{font}}",getParam("font","Arial"),$svg);
 $svg = str_replace("{{spacing}}",getParam("spacing","0"),$svg);
 $svg = str_replace("{{text}}",getParam("text","Sample"),$svg);
+$svg = str_replace("{{stroke}}",getParam("stroke","0"),$svg);
 
 //write file 
 $id = uniqid();

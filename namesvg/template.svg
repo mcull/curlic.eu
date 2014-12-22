@@ -5,7 +5,11 @@
     fill: black;
     letter-spacing: {{spacing}}px;
     text-anchor: start;
+    stroke:#000000;
+    stroke-width:{{stroke}}px;
+    stroke-linecap:butt;
+    stroke-linejoin:miter;
     }
     ]]></style>
-  <text x="25" y="125">{{text}}</text> 
+  <text x="75" y="125">{{text}}</text> 
 </svg>
