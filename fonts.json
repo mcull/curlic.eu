@@ -1,16 +1,15 @@
 [ 
-{"name":"acryle_script_personal_useRg","ttfName":"Acryle Script Personal Use","style":"font-size:2em;","class":"puff1_2"},
-{"name":"Slackey","ttfName":"Slackey","style":"letter-spacing:-5px"},
-{"name":"japanese_brushregular","ttfName":"Japanese Brush","style":"letter-spacing:-5px"},
-{"name":"olivierregular","ttfName":"olivier","style":"font-size:1.2em","class":"puff1"},
-{"name":"vonfontregular","ttfName":"VonFont","style":"font-size:2.2em;letter-spacing:-2px"},
-{"name":"Special Elite","ttfName":"Special Elite","style":"letter-spacing:-8px;font-size:1.3em;","class":"puff1"},
-{"name":"Lily Script One","ttfName":"Lily Script One","class":"puff1"},
-{"name":"Yellowtail","ttfName":"Yellowtail","style":"font-size:1.2em;","class":"puff1"},
-{"name":"Norican","ttfName":"Norican","class":"puff1"},
-{"name":"Oleo Script Swash Caps", "ttfName":"Oleo Script Swash Caps", "style":"letter-spacing:-2px:font-size:1.3em","class":"puff_5"},
-{"name":"impregnable_personal_use_onRg","ttfName":"Impregnable Personal Use Only","style":"font-size:2em;","class":"puff1"},
-{"name":"Pacifico","ttfName":"Pacifico","class":"puff_5"}
-
+{"name":"acryle_script_personal_useRg","ttfName":"Acryle Script Personal Use","style":"font-size:2em;","class":"puff1_2","stroke":"2"},
+{"name":"Slackey","ttfName":"Slackey","style":"letter-spacing:-5px","spacing":"-15"},
+{"name":"japanese_brushregular","ttfName":"Japanese Brush","style":"letter-spacing:-5px","spacing":"-20"},
+{"name":"olivierregular","ttfName":"olivier","style":"font-size:1.2em","class":"puff1","stroke":"3"},
+{"name":"Lily Script One","ttfName":"Lily Script One","class":"puff1","stroke":"2"},
+{"name":"Yellowtail","ttfName":"Yellowtail","style":"font-size:1.2em;","class":"puff1","stroke":"2"},
+{"name":"Norican","ttfName":"Norican","class":"puff1","stroke":"3"},
+{"name":"Oleo Script Swash Caps", "ttfName":"Oleo Script Swash Caps", "style":"letter-spacing:-2px:font-size:1.3em","class":"puff_5","spacing":"-10"},
+{"name":"impregnable_personal_use_onRg","ttfName":"Impregnable Personal Use Only","style":"font-size:2em;","class":"puff1","stroke":"2"},
+{"name":"Pacifico","ttfName":"Pacifico","class":"puff_5","stroke":"3"},
+{"name":"sachikoregular","ttfName":"Sachiko","style":"font-size:1.2em;","class":"puff1_2","stroke":"3"},
+{"name":"wolf_in_the_cityregular","ttfName":"Wolf in the City","style":"font-size:1.75em;","class":"puff1","stroke":"2"}
 
 ]

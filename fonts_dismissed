@@ -1,6 +1,8 @@
 {"name":"Yesteryear","ttfName":"Yesteryear"},
 {"name":"motion_picture_personal_useRg","ttfName":"Motion Picture Personal Use","style":"font-size:1.4em;letter-spacing:-2px","class":"puff_5"},
 
+{"name":"vonfontregular","ttfName":"VonFont","style":"font-size:2.2em;letter-spacing:-2px"},
+{"name":"Special Elite","ttfName":"Special Elite","style":"letter-spacing:-8px;font-size:1.3em;","class":"puff1"},
 {"name":"alfa_slab_oneregular","ttfName":"Alfa Slab One","style":"letter-spacing:-3px"},
 {"name":"retrohandretrohand","ttfName":"RETROHAND","style":"letter-spacing:-3px"},
 {"name":"da_streetsregular","ttfName":"Da Streets","style":"font-size:1.3em;letter-spacing:-3px"},
