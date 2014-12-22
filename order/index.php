@@ -200,7 +200,7 @@ function sendEmailToPrinter($charge) {
     <link rel="stylesheet" href="../css/foundation.css" />
     <link rel="stylesheet" href="../css/app.css" />
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Rochester|Noto+Sans|Source+Code+Pro|Nixie+One|Quicksand:300,400,700|Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Rochester|Noto+Sans|Source+Code+Pro|Nixie+One|Quicksand:300,400,700|Montserrat:400,700' rel='stylesheet' type='text/css'>
     <script src="js/vendor/modernizr.js"></script>
     <style>
     	.receiptRow {
@@ -301,7 +301,7 @@ function sendEmailToPrinter($charge) {
   		</div>
   		<div class="large-8 medium-8 small-8 columns">
   			help@curlic.eu<br>
-  			http://curlic.eu/contact
+  			https://curlic.eu/contact
 
   		</div>
   	</div>
