@@ -73,9 +73,7 @@ body {
  // font-size: 18px;
 }
 
-.chosenMaterial {
-  border:2px solid yellow;
-}
+
 
 .drawArea {
   border-style:none;
@@ -177,6 +175,10 @@ body {
   width:86px;
 }
 
+.chosenMaterial {
+  border:2px solid yellow;
+}
+
 .sectionHead {
   color:black;
   text-align:center;
@@ -233,7 +235,9 @@ body {
   height:64px;
 }
 
-
+.vertSpacer {
+  visibility:hidden;
+}
 
 
 
@@ -377,8 +381,8 @@ select {
 }
 
 #total {
-  padding-top: 1.75rem;
-  font-size:1.3rem;
+  padding: 1.5rem;
+  font-size:2rem;
   //font-size:24px;
   font-family:'Special Elite';
 }

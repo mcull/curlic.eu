@@ -4,30 +4,7 @@ var guid;
     var chainCost = 0;
     var shippingCost = 0;
 
-    var fonts = [ 
-                  {"name":"acryle_script_personal_useRg","ttfName":"Acryle Script Personal Use","style":"font-size:2em;"},
-                  {"name":"Yellowtail"},
-                  {"name":"Lily Script One"},
-                  {"name":"Oleo Script Swash Caps","style":"letter-spacing:-2px:font-size:1.3em"},
-                  {"name":"Norican"},
-                  {"name":"Yesteryear"},
-                  {"name":"Pacifico"},
-                  {"name":"Special Elite","style":"letter-spacing:-8px;font-size:1.3em"},
-                  {"name":"Slackey","style":"letter-spacing:-5px"},
-                  {"name":"da_streetsregular","ttfName":"Da Streets","style":"font-size:1.3em;letter-spacing:-3px"},
-                  {"name":"Dancing Script","ttfName":"Dancing Script Bold","style":"font-size:1.3em;font-weight:bold"},
-                  {"name":"alfa_slab_oneregular","ttfName":"Alfa Slab One","style":"letter-spacing:-3px"},
-                  {"name":"impregnable_personal_use_onRg","ttfName":"Impregnable Personal Use Only","style":"font-size:2em;"},
-                  {"name":"japanese_brushregular","ttfName":"Japanese Brush","style":"letter-spacing:-5px"},
-                  {"name":"oldnewspapertypesregular","ttfName":"OldNewspaperTypes","style":"letter-spacing:-4px"},
-                  {"name":"mastoc_personal_use_onlyRg","ttfName":"Mastoc Personal Use Only","style":"font-size:1.3em"},
-                  {"name":"olivierregular","ttfName":"olivier","style":"font-size:1.2em"},
-                  {"name":"intrique_script_personal_usRg","ttfName":"Intrique Script Personal Use","style":"font-size:1.5em"},
-                  {"name":"vonfontregular","ttfName":"VonFont","style":"font-size:2.2em;letter-spacing:-2px"},
-                  {"name":"motion_picture_personal_useRg","ttfName":"Motion Picture Personal Use","style":"font-size:1.4em;letter-spacing:-2px"},
-        
-                  {"name":"retrohandretrohand","ttfName":"RETROHAND","style":"letter-spacing:-3px"}
-                  ];
+    var fonts = null;
     var popularNames=["Hannah","Emily","Sarah","Madison","Brianna","Kaylee","Kaitlyn","Hailey","Alexis","Elizabeth","Taylor","Lauren","Ashley","Katherine","Jessica","Anna","Samantha","Makayla","Kayla","Madeline","Jasmine","Alyssa","Abigail","Olivia","Brittany","Nicole","Destiny","Mackenzie","Emma","Jennifer","Rachel","Sydney","Megan","Grace","Alexandra","Morgan","Savannah","Victoria","Sophia","Natalie","Amanda","Stephanie","Chloe","Allison","Rebecca","Jacqueline","Julia","Cheyenne","Amber","Erica","Isabella","Kylie","Christina","Brooke","Bailey","Maria","Diana","Danielle","Kelsey","Jordan","Andrea","Vanessa","Melissa","Kimberly","Sierra","Maya","Michelle","Caroline","Arianna","Zoe","Leslie","Isabel","Gabrielle","Faith","Lindsey","Erin","Kiara","Jenna","Casey","Paige","Mary","Alicia","Cameron","Alexandria","Molly","Melanie","Katie","Courtney","Trinity","Jada","Claire","Audrey","Adriana","Mia","Margaret","Riley","Jocelyn","Gabriela","Sabrina","Miranda"];
 
     function SVG(tag) {
@@ -68,6 +45,15 @@ var guid;
       return popularNames[currentNameIndex++ % popularNames.length];
     }
 
+    function copyFromBilling() {
+      $("#shipName").val($("#billName").val());
+      $("#shipAddress1").val($("#billAddress1").val());
+      $("#shipAddress2").val($("#billAddress2").val());
+      $("#shipCity").val($("#billCity").val());
+      $("#shipState").val($("#billState").val());
+      $("#shipZip").val($("#billZip").val());
+    }
+
 
     function getChainCost() {
       var retVal = 0;
@@ -75,6 +61,15 @@ var guid;
         retVal = 5;
       } 
       return retVal;
+    }
+
+    function enableCheckoutIfReady() {
+      if ($(".selectedScript").length && $(".chosenMaterial").length) {
+        $("#checkout").prop('disabled', false);
+        $("#orderSummary").show();
+      } else {
+        $("#checkout").prop('disabled', true);
+      }
     }
 
     function getSubtotal() {
@@ -93,7 +88,6 @@ var guid;
     function updateOrderTotal() {
       var total =  getTotal();
       $("#orderTotal").html("$" + total);
-      $("#hPrice").val(total*100);
     }
 
     function updateOrderSubTotal() {
@@ -137,8 +131,14 @@ var guid;
 
       $(document).foundation();   
       $(document).ready(function() {
-
-        //initSlick(); 
+        $.getJSON( "fonts.json", function( data ) {
+          fonts = data;
+          initApp();
+        });
+      });
+      
+      function initApp() {
+        console.log(fonts);
         $.each(fonts,function(index,val) {
           var id = val.name.replace(" ", "-");
           var fontSpacing = "";
@@ -159,6 +159,7 @@ var guid;
 
           $("#scripts").append(scriptDiv);
         });
+
       refreshExamples();
 
         $(".preview").click(function() {
@@ -182,6 +183,7 @@ var guid;
             }, 1000);
             $("#orderName").css('font-family',$(this).attr('id').replace("-"," "));
             $("#orderName").html($(this).html());
+            enableCheckoutIfReady();
         });
 
         $(".sample").click(function() {
@@ -198,7 +200,11 @@ var guid;
           materialCost = getMaterialCost(this);
           updateOrderSubTotal();
           updateOrderTotal();
-          $("#orderSummary").show();
+          enableCheckoutIfReady();
+        });
+
+        $('#shippingMethod').on('change', function() {
+          updateOrderTotal();
         });
 
         $(".menuToggle").click(function(event) {
@@ -260,6 +266,10 @@ var guid;
             // Insert the token into the form so it gets submitted to the server
             $form.append($('<input type="hidden" name="stripeToken" />').val(token));
             $form.append($('<input type="hidden" name="price" />').val(parseInt(getTotal()) * 100));
+            $form.append($('<input type="hidden" name="material" />').val(getMaterialName($(".chosenMaterial").first())));
+            $form.append($('<input type="hidden" name="text" />').val($("#name").val()));
+            $form.append($('<input type="hidden" name="font" />').val($(".selectedScript").first().attr("id")));
+
             // and re-submit
             $form.get(0).submit();
           }
@@ -278,6 +288,5 @@ var guid;
           return false;
         });
       });
+  }
 
-
-  });

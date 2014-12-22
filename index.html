@@ -294,17 +294,41 @@
             <input type="text" pattern="\d*" size="4" data-stripe="cvc">
           </label>
         </div>
-        <div class="large-4 medium-4 small-4 columns">
-          <label>Expiration
+        <div class="large-4 medium-6 small-4 columns">
+          <label>Exp Mon
             <select data-stripe="exp-month"/>
               <option value="01">JAN</option>
+              <option value="02">FEB</option>
+              <option value="03">MAR</option>
+              <option value="04">APR</option>
+              <option value="05">MAY</option>
+              <option value="06">JUN</option>
+              <option value="07">JUL</option>
+              <option value="08">AUG</option>
+              <option value="09">SEP</option>
+              <option value="10">OCT</option>
+              <option value="11">NOV</option>
+              <option value="12">DEC</option>
             </select>
           </label>
         </div>
-        <div class="large-4 medium-4 small-4 columns">
-          <label>&nbsp;
+        <div class="large-4 medium-6 small-4 columns">
+          <label>Exp Year
              <select data-stripe="exp-year"/>
               <option value="2015">2015</option>
+              <option value="2016">2016</option>
+              <option value="2017">2017</option>
+              <option value="2018">2018</option>
+              <option value="2019">2019</option>
+              <option value="2020">2020</option>
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
+              <option value="2023">2023</option>
+              <option value="2024">2024</option>
+              <option value="2025">2025</option>
+              <option value="2026">2026</option>
+              <option value="2027">2027</option>
+              <option value="2028">2028</option>
             </select>
           </label>
         </div>
@@ -321,17 +345,17 @@
         </div>
         <div class="large-8 medium-8 small-8 columns">
             <label>Address
-              <input type="text" name="billAddress1" id="billAddress1" />
+              <input type="text" name="billAddress1" id="billAddress1" data-stripe="address_line1" />
             </label>
         </div>
         <div class="large-4 medium-4 small-4 columns">
             <label>Apt
-              <input type="text" name="billAddress2" id="billAddress2"/>
+              <input type="text" name="billAddress2" id="billAddress2" data-stripe="address_line2"/>
             </label>
         </div>
         <div class="large-12 columns">
             <label>City
-              <input type="text" name="billCity" id="billCity"/>
+              <input type="text" name="billCity" id="billCity" data-stripe="address_city" />
             </label>
         </div>
         <div class="large-3 medium-3 small-3 columns">
@@ -393,7 +417,7 @@
         </div>
         <div class="large-4 medium-4 small-4 columns">
             <label>Zip
-              <input type="text" pattern="\d*" name="billZip" id="billZip"/>
+              <input type="text" pattern="\d*" name="billZip" id="billZip" data-stripe="address_zip" />
             </label>
         </div>
         <div class="large-5 medium-5 small-5 columns"></div>
@@ -427,10 +451,15 @@
         <div class="large-4 medium-5 small-5 columns" id="eta">
             <i>Most orders ship in 48 hours</i>
         </div>
+        <div class="large-12 columns show-for-medium-up vertSpacer">
+           <label>Spacer
+              <input type="text"/>
+            </label>
+        </div>
       </div>
     </div> 
     <div class="large-12 columns">
-      <div class="orderFormTitle">Shipping</div>
+      <div class="orderFormTitle">Shipping <small><a href="javascript:copyFromBilling();" title="Copy from billing"><i class="fa fa-clipboard"></i></a></small></div>
       <div class="orderForm">
         <div class="large-12 columns">
             <label>Name
@@ -439,7 +468,7 @@
         </div>
         <div class="large-8 medium-8 small-8 columns">
             <label>Address
-              <input type="text" name="shipAddress" id="shipAddress" />
+              <input type="text" name="shipAddress1" id="shipAddress1" />
             </label>
         </div>
         <div class="large-4 medium-4 small-4 columns">
@@ -509,16 +538,17 @@
               </select>
             </label>
         </div>
-        <div class="large-4 medium-3 small-3 columns">
+        <div class="large-4 medium-4 small-4 columns">
             <label>Zip
               <input type="text" pattern="\d*"s name="shipZip" id="shipZip" />
             </label>
         </div>
-        <div class="large-5 medium-6 small-6 columns" id="total">
+        <div class="large-5 medium-5 small-5 columns"></div>
+        <div class="large-12 medium-12 small-12 columns" id="total">
           Total: <span id="orderTotal">$70</span>
         </div>
-        <div class="large-12 medium-12 small-12 columns" id="checkout">
-          <button type="submit" class="button radius success large expand"> <i class="fa fa-lock"></i> Checkout </button>
+        <div class="large-12 medium-12 small-12 columns" >
+          <button type="submit" class="button radius success large expand" disabled id="checkout"> <i class="fa fa-lock"></i> Checkout </button>
         </div>
         <div class="large-12 medium-12 small-12 columns payment-errors">
 
