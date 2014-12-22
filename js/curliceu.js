@@ -187,8 +187,23 @@ var guid;
             $('html,body').animate({
               scrollTop: $("#materialHeader").offset().top - 25
             }, 1000);
-            $("#orderName").css('font-family',$(this).attr('id').replace("-"," "));
-            $("#orderName").html($(this).html());
+            
+            var chosenFont = getFontByName($(this).attr('id').replace("-"," "));
+            var imagePreviewUrl =  "https://www.curlic.eu/namesvg/?text=" +
+                                $(this).html() +
+                                "&font=" + 
+                                chosenFont.ttfName +
+                                "&stroke=" +
+                                chosenFont.stroke +
+                                "&spacing=" +
+                                chosenFont.spacing
+                                "&size=" +
+                                chosenFont.size
+                                "&t=" +
+                                chosenFont.top
+                                "&l=" +
+                                chosenFont.left
+            $("#orderName").html("<img src='" + imagePreviewUrl + "'>");
             enableCheckoutIfReady();
         });
 
