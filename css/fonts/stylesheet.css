@@ -299,3 +299,81 @@
     font-style: normal;
 
 }
+
+
+@font-face {
+    font-family: 'wolf_in_the_cityregular';
+    src: url('wolf_in_the_city-webfont.eot');
+    src: url('wolf_in_the_city-webfont.eot?#iefix') format('embedded-opentype'),
+         url('wolf_in_the_city-webfont.woff2') format('woff2'),
+         url('wolf_in_the_city-webfont.woff') format('woff'),
+         url('wolf_in_the_city-webfont.ttf') format('truetype'),
+         url('wolf_in_the_city-webfont.svg#wolf_in_the_cityregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'calligraphillip_trialregular';
+    src: url('calphi_t-webfont.eot');
+    src: url('calphi_t-webfont.eot?#iefix') format('embedded-opentype'),
+         url('calphi_t-webfont.woff2') format('woff2'),
+         url('calphi_t-webfont.woff') format('woff'),
+         url('calphi_t-webfont.ttf') format('truetype'),
+         url('calphi_t-webfont.svg#calligraphillip_trialregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'angelique_ma_douce_colombeRg';
+    src: url('angelique_ma_douce_colombe-webfont.eot');
+    src: url('angelique_ma_douce_colombe-webfont.eot?#iefix') format('embedded-opentype'),
+         url('angelique_ma_douce_colombe-webfont.woff2') format('woff2'),
+         url('angelique_ma_douce_colombe-webfont.woff') format('woff'),
+         url('angelique_ma_douce_colombe-webfont.ttf') format('truetype'),
+         url('angelique_ma_douce_colombe-webfont.svg#angelique_ma_douce_colombeRg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'im_fashionista_demo-versionRg';
+    src: url('im_fashionista_demo-version-webfont.eot');
+    src: url('im_fashionista_demo-version-webfont.eot?#iefix') format('embedded-opentype'),
+         url('im_fashionista_demo-version-webfont.woff2') format('woff2'),
+         url('im_fashionista_demo-version-webfont.woff') format('woff'),
+         url('im_fashionista_demo-version-webfont.ttf') format('truetype'),
+         url('im_fashionista_demo-version-webfont.svg#im_fashionista_demo-versionRg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'sachikoregular';
+    src: url('sachiko-webfont.eot');
+    src: url('sachiko-webfont.eot?#iefix') format('embedded-opentype'),
+         url('sachiko-webfont.woff2') format('woff2'),
+         url('sachiko-webfont.woff') format('woff'),
+         url('sachiko-webfont.ttf') format('truetype'),
+         url('sachiko-webfont.svg#sachikoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

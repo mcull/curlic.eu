@@ -168,6 +168,18 @@ body {
   
 } 
 
+.puff_5 {
+  -webkit-text-stroke: .05rem #303030;
+}
+
+.puff1 {
+  -webkit-text-stroke: .1rem #303030;
+}
+
+.puff1_2 {
+  -webkit-text-stroke: .12rem #303030;
+}
+
 .sample {
   border:1px solid #cfcfcf;
   margin:.3em;
@@ -190,6 +202,7 @@ body {
 
 .selectedScript {
   color:yellow;
+  -webkit-text-stroke-color:yellow;
 }
 
 .soldOut {
