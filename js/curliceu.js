@@ -194,10 +194,8 @@ var guid;
       refreshExamples();
 
         $(".preview").click(function() {
-             timer.pause();
              if ($(this).hasClass("selectedScript")) {
                $(".selectedScript").removeClass("selectedScript");
-               timer.play();
                return;
              }
             $(".selectedScript").removeClass("selectedScript");
@@ -283,13 +281,6 @@ var guid;
           updateOrderTotal();
           updateOrderSubTotal();
         });
-/*
-        var timer = $.timer(function() {
-          if ($("#name").val().length == 0) {
-            refreshExamples();
-          }
-        },5000,true);   
-        */ 
 
       $(document).keypress(function(e) {
         if(e.which == 13) {
