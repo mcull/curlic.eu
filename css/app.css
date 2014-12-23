@@ -301,6 +301,18 @@ body {
   padding-top:10px;
 }
 
+#logo {
+  background:#ba353c;
+  color:white;
+  font-family:Rochester;
+  line-height:1rem;
+  padding-top:0px;
+  padding-left:8px;
+  padding-right:5px;
+  padding-bottom:3px;
+  font-size:1.1rem;
+}
+
 #materialHeader {
   //padding-bottom:.8rem;
 }

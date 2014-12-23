@@ -8,6 +8,7 @@ var guid;
     var popularNames=["Hannah","Emily","Sarah","Madison","Brianna","Kaylee","Kaitlyn","Hailey","Alexis","Elizabeth","Taylor","Lauren","Ashley","Katherine","Jessica","Anna","Samantha","Makayla","Kayla","Madeline","Jasmine","Alyssa","Abigail","Olivia","Brittany","Nicole","Destiny","Mackenzie","Emma","Jennifer","Rachel","Sydney","Megan","Grace","Alexandra","Morgan","Savannah","Victoria","Sophia","Natalie","Amanda","Stephanie","Chloe","Allison","Rebecca","Jacqueline","Julia","Cheyenne","Amber","Erica","Isabella","Kylie","Christina","Brooke","Bailey","Maria","Diana","Danielle","Kelsey","Jordan","Andrea","Vanessa","Melissa","Kimberly","Sierra","Maya","Michelle","Caroline","Arianna","Zoe","Leslie","Isabel","Gabrielle","Faith","Lindsey","Erin","Kiara","Jenna","Casey","Paige","Mary","Alicia","Cameron","Alexandria","Molly","Melanie","Katie","Courtney","Trinity","Jada","Claire","Audrey","Adriana","Mia","Margaret","Riley","Jocelyn","Gabriela","Sabrina","Miranda"];
 
     var slideNames = ["Hannah","Kaylee","Madison","Elizabeth"];
+    var slideColors = ["#ba353c","#7e776e","#1d1c2d","#583135"];
 
     function SVG(tag) {
        return document.createElementNS('http://www.w3.org/2000/svg', tag);
@@ -186,9 +187,11 @@ var guid;
           if ($("#name").val().length ==0) {
             var activeBullet = $(".orbit-bullets").find(".active").first().attr("data-orbit-slide");
             refreshExamples(false,slideNames[activeBullet]);
+            $("#logo").animate({
+              backgroundColor: slideColors[activeBullet],
+              easing:"easeOutCirc"
+            });
           }
-          console.info("after slide change");
-          console.info("slide " + orbit.slide_number + " of " + orbit.total_slides);
         });
 
       refreshExamples();
@@ -289,7 +292,7 @@ var guid;
         }
       });
 
-      Stripe.setPublishableKey('pk_VpNFyzG0XC2rL0pV1QlDvQ3rCUSea');
+      Stripe.setPublishableKey('pk_KQRNE2GSoOaT98EX7AFRZ34J37wzk');
 
         var stripeResponseHandler = function(status, response) {
           var $form = $('#payment-form');
