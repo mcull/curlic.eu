@@ -20,11 +20,15 @@
   </head>
   <body>
     <a name="top"></a>
+    <div class-"row">
+      <div class="large-12 columns" id="nameError" style="position:relative;top:.5rem;font-size:.7rem;color:red;line-height:.5rem;font-face:bold;display:none"></div>
+    </div>
     <div class="row" id="name-o">
       <div class="large-12 columns">
         <div class="row collapse postfix-round radius">
           <div class="small-10 columns" >
-            <input type="text" placeholder="Type your name..." id="name">
+            <input type="text" placeholder="Type your name..." id="name" maxlength="10" onkeydown="return checkChar(event);">
+
           </div>
           <div class="small-2 columns">
             <a href="javascript:refreshExamples(true);" id="go" class="button postfix"><i class="fa fa-magic"></i></a>
@@ -565,7 +569,7 @@
         </div>
         <div class="large-5 medium-5 small-5 columns"></div>
         <div class="large-12 medium-12 small-12 columns" id="total">
-          Total: <span id="orderTotal">$70</span>
+          Total: <span id="orderTotal">$-</span>
         </div>
         <div class="large-12 medium-12 small-12 columns" >
           <button type="submit" class="button radius success large expand" disabled id="checkout"> <i class="fa fa-lock"></i> Checkout </button>
@@ -582,8 +586,10 @@
 <div class="row" id="footer"> 
   <div class="large-12 columns" style="text-align:center;">
     <h6><small>Hand-made with <i class="fa fa-heart"></i> in Kentucky  &copy;2014 Curliceu <a href="privacy.html">Privacy Policy</a></small></h6>
+    <div id="anchor" style="position:absolute;left:5px;top:5px;color:green;"><i class="fa fa-anchor"></i></div>
   </div>
 </div>
+
 
 <!--
     <div class="row">

@@ -3,12 +3,36 @@ var guid;
     var materialCost = 0;
     var chainCost = 0;
     var shippingCost = 0;
+    var discount=0;
 
     var fonts = null;
     var popularNames=["Hannah","Emily","Sarah","Madison","Brianna","Kaylee","Kaitlyn","Hailey","Alexis","Elizabeth","Taylor","Lauren","Ashley","Katherine","Jessica","Anna","Samantha","Makayla","Kayla","Madeline","Jasmine","Alyssa","Abigail","Olivia","Brittany","Nicole","Destiny","Mackenzie","Emma","Jennifer","Rachel","Sydney","Megan","Grace","Alexandra","Morgan","Savannah","Victoria","Sophia","Natalie","Amanda","Stephanie","Chloe","Allison","Rebecca","Jacqueline","Julia","Cheyenne","Amber","Erica","Isabella","Kylie","Christina","Brooke","Bailey","Maria","Diana","Danielle","Kelsey","Jordan","Andrea","Vanessa","Melissa","Kimberly","Sierra","Maya","Michelle","Caroline","Arianna","Zoe","Leslie","Isabel","Gabrielle","Faith","Lindsey","Erin","Kiara","Jenna","Casey","Paige","Mary","Alicia","Cameron","Alexandria","Molly","Melanie","Katie","Courtney","Trinity","Jada","Claire","Audrey","Adriana","Mia","Margaret","Riley","Jocelyn","Gabriela","Sabrina","Miranda"];
 
     var slideNames = ["Hannah","Kaylee","Madison","Elizabeth"];
     var slideColors = ["#ba353c","#7e776e","#1d1c2d","#583135"];
+
+    function checkChar(event) {
+      var key = event.keyCode;
+      var isAlpha =  ((key >= 65 && key <= 90) 
+          || key == 8
+          || (key >= 37 && key <= 40)
+          );
+      var len = $("#name").val().length;
+      var tooLong = false;
+      if (!isAlpha) {
+       $("#nameError").html("Only letters allowed!");
+       $("#nameError").show();
+      } else if   (key != 8 
+              &&  (key < 37 || key > 40) 
+              && (len + 1) > 10) {
+        tooLong = true;
+        $("#nameError").html("Max 10 letters allowed!");
+        $("#nameError").show();
+      } else {
+        $("#nameError").hide();
+      }
+      return isAlpha;
+    };
 
     function SVG(tag) {
        return document.createElementNS('http://www.w3.org/2000/svg', tag);
@@ -76,7 +100,7 @@ var guid;
     }
 
     function getSubtotal() {
-      return getMaterialCost($(".chosenMaterial").first()) + getChainCost();
+      return getMaterialCost($(".chosenMaterial").first()) + getChainCost() - discount;
     }
 
     function getTotal() {
@@ -90,7 +114,13 @@ var guid;
 
     function updateOrderTotal() {
       var total =  getTotal();
-      $("#orderTotal").html("$" + total);
+      if (discount > 0){
+        $("#orderTotal").html("<span style='color:red;text-decoration:line-through'>$" + 
+                              (total + discount) 
+                              + "</span> $" + total);
+      } else {
+        $("#orderTotal").html("$" + total);
+      }
     }
 
     function updateOrderSubTotal() {
@@ -230,6 +260,10 @@ var guid;
                                 "&l=" +
                                ((chosenFont.left && chosenFont.left.length > 0) ? chosenFont.left : "")
             $("#orderName").html("<img src='" + imagePreviewUrl + "'>");
+            if ($(".chosenMaterial").length > 0 && $(".selectedScript").length > 0) {
+              updateOrderSubTotal();
+              updateOrderTotal();
+            }
             enableCheckoutIfReady();
         });
 
@@ -245,13 +279,17 @@ var guid;
             }, 1000);
           $("#orderMaterial").html(getMaterialName(this));
           materialCost = getMaterialCost(this);
-          updateOrderSubTotal();
-          updateOrderTotal();
+          if ($(".chosenMaterial").length > 0 && $(".selectedScript").length > 0) {
+            updateOrderSubTotal();
+            updateOrderTotal();
+          }
           enableCheckoutIfReady();
         });
 
         $('#shippingMethod').on('change', function() {
-          updateOrderTotal();
+          if ($(".chosenMaterial").length > 0 && $(".selectedScript").length > 0) {
+            updateOrderTotal();
+          }
         });
 
         $(".menuToggle").click(function(event) {
@@ -289,6 +327,13 @@ var guid;
         if(e.which == 13) {
           event.stopPropagation();
           refreshExamples($("#name").val());
+        }
+      });
+
+      $("#anchor").click(function() {
+        discount = 25;
+        if ($(".chosenMaterial").length > 0 && $(".selectedScript").length > 0) {
+          updateOrderTotal();
         }
       });
 
