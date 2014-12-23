@@ -7,6 +7,8 @@ var guid;
     var fonts = null;
     var popularNames=["Hannah","Emily","Sarah","Madison","Brianna","Kaylee","Kaitlyn","Hailey","Alexis","Elizabeth","Taylor","Lauren","Ashley","Katherine","Jessica","Anna","Samantha","Makayla","Kayla","Madeline","Jasmine","Alyssa","Abigail","Olivia","Brittany","Nicole","Destiny","Mackenzie","Emma","Jennifer","Rachel","Sydney","Megan","Grace","Alexandra","Morgan","Savannah","Victoria","Sophia","Natalie","Amanda","Stephanie","Chloe","Allison","Rebecca","Jacqueline","Julia","Cheyenne","Amber","Erica","Isabella","Kylie","Christina","Brooke","Bailey","Maria","Diana","Danielle","Kelsey","Jordan","Andrea","Vanessa","Melissa","Kimberly","Sierra","Maya","Michelle","Caroline","Arianna","Zoe","Leslie","Isabel","Gabrielle","Faith","Lindsey","Erin","Kiara","Jenna","Casey","Paige","Mary","Alicia","Cameron","Alexandria","Molly","Melanie","Katie","Courtney","Trinity","Jada","Claire","Audrey","Adriana","Mia","Margaret","Riley","Jocelyn","Gabriela","Sabrina","Miranda"];
 
+    var slideNames = ["Hannah","Kaylee","Madison","Elizabeth"];
+
     function SVG(tag) {
        return document.createElementNS('http://www.w3.org/2000/svg', tag);
     }
@@ -94,14 +96,16 @@ var guid;
       $("#orderSubtotal").html("$" + getSubtotal());
     }
 
-    function refreshExamples(doScroll) {
+    function refreshExamples(doScroll,name) {
+
 
       var newText = $("#name").val();
       var newSize = 36;
       $(".preview").addClass("armedStyle");
       $(".sample").addClass("armedStyle");
       if (!newText || newText.length ==0) {
-        newText = getNextPopularName();
+        newText = (!name || name.length == 0) ? getNextPopularName() : name;
+//        newText = getNextPopularName();
         /*$.each($('.expanded'),function(index,val) {
               $(val).click();      
           });*/
@@ -129,7 +133,19 @@ var guid;
       //$(document).scrollTop( $("#styleHeader").offset().top ); 
     }
 
-      $(document).foundation();   
+      $(document).foundation({
+        orbit: {
+          animation: 'slide',
+          timer_speed: 5000,
+          pause_on_hover: true,
+          animation_speed: 1000,
+          navigation_arrows: true,
+          bullets: true,
+          timer:true,
+          resume_on_mouseout:true
+        }
+      });  
+
       $(document).ready(function() {
         $.getJSON( "fonts.json", function( data ) {
           fonts = data;
@@ -138,7 +154,7 @@ var guid;
       });
       
       function initApp() {
-        console.log(fonts);
+ 
         $.each(fonts,function(index,val) {
           var id = val.name.replace(" ", "-");
           var fontSpacing = "";
@@ -164,6 +180,15 @@ var guid;
                           + "'></div>";
 
           $("#scripts").append(scriptDiv);
+        });
+
+        $("#photos").on("after-slide-change.fndtn.orbit", function(event, orbit) {
+          if ($("#name").val().length ==0) {
+            var activeBullet = $(".orbit-bullets").find(".active").first().attr("data-orbit-slide");
+            refreshExamples(false,slideNames[activeBullet]);
+          }
+          console.info("after slide change");
+          console.info("slide " + orbit.slide_number + " of " + orbit.total_slides);
         });
 
       refreshExamples();
@@ -258,12 +283,13 @@ var guid;
           updateOrderTotal();
           updateOrderSubTotal();
         });
-
+/*
         var timer = $.timer(function() {
           if ($("#name").val().length == 0) {
             refreshExamples();
           }
-        },5000,true);    
+        },5000,true);   
+        */ 
 
       $(document).keypress(function(e) {
         if(e.which == 13) {
