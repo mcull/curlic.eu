@@ -217,15 +217,15 @@ var guid;
                                 "&font=" + 
                                 chosenFont.ttfName +
                                 "&stroke=" +
-                                chosenFont.stroke +
+                                ((chosenFont.stroke && chosenFont.stroke.length > 0) ? chosenFont.stroke : "") +
                                 "&spacing=" +
-                                chosenFont.spacing
+                                ((chosenFont.spacing && chosenFont.spacing.length > 0) ? chosenFont.spacing : "")
                                 "&size=" +
-                                chosenFont.size
+                                ((chosenFont.size && chosenFont.size.length > 0) ? chosenFont.size : "")
                                 "&t=" +
-                                chosenFont.top
+                                ((chosenFont.top && chosenFont.top.length > 0) ? chosenFont.top : "")
                                 "&l=" +
-                                chosenFont.left
+                               ((chosenFont.left && chosenFont.left.length > 0) ? chosenFont.left : "")
             $("#orderName").html("<img src='" + imagePreviewUrl + "'>");
             enableCheckoutIfReady();
         });
