@@ -1,7 +1,7 @@
 <?php
 
 function getParam($paramName, $defaultVal) {
-	return (ISSET($_REQUEST[$paramName])) ? $_REQUEST[$paramName] : $defaultVal; 
+	return (ISSET($_REQUEST[$paramName]) && strlen($_REQUEST[$paramName]) > 0) ? $_REQUEST[$paramName] : $defaultVal; 
 }
 
 $font = getParam("font","Arial");

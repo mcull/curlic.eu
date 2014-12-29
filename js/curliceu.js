@@ -192,7 +192,7 @@ var guid;
 
           var scriptDiv = "<div  id='" 
                           + id 
-                          + "' class='preview large-3 medium-4 small-6 columns";
+                          + "' class='preview large-4 medium-4 small-6 columns";
           if (val.class) {
             scriptDiv     += " " 
                           + val.class
