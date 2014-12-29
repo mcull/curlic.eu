@@ -10,11 +10,18 @@ function makeFontUrl($font, $text) {
     "&spacing=" .
     (($font->spacing && strlen($font->spacing) > 0) ? $font->spacing : "") .
     "&size=" .
-    (($font->size && strlen($font->size) > 0) ? $font->size : "") .
+    (($font->size && strlen($font->size) > 0) ? $font->size : "120") .
     "&t=" .
     (($font->top && strlen($font->top) > 0) ? $font->top : "") .
     "&l=" .
     (($font->left && strlen($font->left) > 0) ? $font->left : "");
 }
+
+function fontNameComparitor($a, $b)
+{
+    return  strcasecmp($a->ttfName, $b->ttfName);
+}
+
+
 
 ?>
