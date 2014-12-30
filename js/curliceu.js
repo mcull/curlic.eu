@@ -13,16 +13,15 @@ var guid;
 
     function checkChar(event) {
       var key = event.keyCode;
-      var isAlpha =  ((key >= 65 && key <= 90) 
-          || key == 8
-          || (key >= 37 && key <= 40)
-          );
+      var isOk =  key <= 46 || (key >= 65 && key <= 90);
       var len = $("#name").val().length;
       var tooLong = false;
-      if (!isAlpha) {
+      if (!isOk) {
        $("#nameError").html("Only letters allowed!");
        $("#nameError").show();
+
       } else if   (key != 8 
+              &&  key != 13
               &&  (key < 37 || key > 40) 
               && (len + 1) > 10) {
         tooLong = true;
@@ -31,7 +30,7 @@ var guid;
       } else {
         $("#nameError").hide();
       }
-      return isAlpha;
+      return isOk;
     };
 
     function SVG(tag) {
