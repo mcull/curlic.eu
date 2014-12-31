@@ -244,6 +244,7 @@ var guid;
             }, 1000);
             
             var chosenFont = getFontByName($(this).attr('id').replace("-"," "));
+            console.log(chosenFont.size);
             var imagePreviewUrl =  "https://www.curlic.eu/namesvg/?text=" +
                                 $(this).html() +
                                 "&font=" + 
@@ -251,13 +252,14 @@ var guid;
                                 "&stroke=" +
                                 ((chosenFont.stroke && chosenFont.stroke.length > 0) ? chosenFont.stroke : "") +
                                 "&spacing=" +
-                                ((chosenFont.spacing && chosenFont.spacing.length > 0) ? chosenFont.spacing : "")
+                                ((chosenFont.spacing && chosenFont.spacing.length > 0) ? chosenFont.spacing : "") +
                                 "&size=" +
-                                ((chosenFont.size && chosenFont.size.length > 0) ? chosenFont.size : "")
+                                ((chosenFont.size && chosenFont.size.length > 0) ? chosenFont.size : "") + 
                                 "&t=" +
-                                ((chosenFont.top && chosenFont.top.length > 0) ? chosenFont.top : "")
+                                ((chosenFont.top && chosenFont.top.length > 0) ? chosenFont.top : "") +
                                 "&l=" +
-                               ((chosenFont.left && chosenFont.left.length > 0) ? chosenFont.left : "")
+                               ((chosenFont.left && chosenFont.left.length > 0) ? chosenFont.left : "");
+
             $("#orderName").html("<img src='" + imagePreviewUrl + "'>");
             if ($(".chosenMaterial").length > 0 && $(".selectedScript").length > 0) {
               updateOrderSubTotal();
