@@ -1,17 +1,11 @@
 [ 
-{"name":"acryle_script_personal_useRg","ttfName":"Acryle Script Personal Use","style":"font-size:2em;","class":"puff1_2","stroke":"2","size":"140","top":"120","left":"25"},
-{"name":"Slackey","ttfName":"Slackey","style":"letter-spacing:-.2rem;","spacing":"-15"},
-{"name":"japanese_brushregular","ttfName":"Japanese Brush","style":"letter-spacing:-.28rem","spacing":"-20","size":"100","top":"110"},
-{"name":"olivierregular","ttfName":"olivier","style":"font-size:1.2em","class":"puff1","stroke":"3"},
+{"name":"wolf_in_the_cityregular","ttfName":"Wolf in the City","style":"font-size:1.75em;","class":"puff1","stroke":"2"},
 {"name":"Lily Script One","ttfName":"Lily Script One","class":"puff1","stroke":"2"},
 {"name":"Yellowtail","ttfName":"Yellowtail","style":"font-size:1.2em;","class":"puff1","stroke":"2"},
-{"name":"Norican","ttfName":"Norican","class":"puff1","stroke":"3"},
 {"name":"Oleo Script Swash Caps", "ttfName":"Oleo Script Swash Caps", "style":"letter-spacing:-2px:font-size:1.3em","class":"puff_5","spacing":"-10"},
 {"name":"impregnable_personal_use_onRg","ttfName":"Impregnable Personal Use Only","style":"font-size:2em;","class":"puff1","stroke":"2"},
 {"name":"Pacifico","ttfName":"Pacifico","class":"puff_5","stroke":"3","size":"100"},
-{"name":"sachikoregular","ttfName":"Sachiko","style":"font-size:1.2em;","class":"puff1_2","stroke":"3"},
-{"name":"wolf_in_the_cityregular","ttfName":"Wolf in the City","style":"font-size:1.75em;","class":"puff1","stroke":"2"},
+{"name":"Slackey","ttfName":"Slackey","style":"letter-spacing:-.2rem;","spacing":"-15"},
 {"name":"vonfontregular","ttfName":"VonFont","style":"font-size:2.2em;letter-spacing:-2px","class":"puff_5","stroke":"2","spacing":"-3"},
-{"name":"alfa_slab_oneregular","ttfName":"Alfa Slab One","style":"letter-spacing:-3px","spacing":"-3"},
-{"name":"intrique_script_personal_usRg","ttfName":"Intrique Script Personal Use","style":"font-size:1.5em","class":"puff_5","stroke":"3"}
+{"name":"alfa_slab_oneregular","ttfName":"Alfa Slab One","style":"letter-spacing:-3px","spacing":"-3"}
 ]
