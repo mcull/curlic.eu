@@ -1,0 +1,43 @@
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewbox="0 0 300 200">
+    <style type="text/css"><![CDATA[text {
+      font-family: "{{font}}", serif;
+      font-size: {{fontSize}}px;
+      fill: #493D26;
+      opacity:.75
+      letter-spacing: {{spacing}}px;
+      text-anchor: start;
+      stroke:#7F5217;
+      stroke-width:{{stroke}}px;
+      stroke-linecap:butt;
+      stroke-linejoin:miter;
+      }
+      ]]></style>
+      <defs>
+        <pattern id="p1" patternUnits="userSpaceOnUse" width="32" height="32">
+          <image xlink:href="http://54.85.106.231/img/rosewood.png" width="32" height="32" />
+        </pattern>
+        <pattern id="p2" patternUnits="userSpaceOnUse" width="100" height="100">
+          <image xlink:href="http://54.85.106.231/img/rosewood.png" width="300" height="300" />
+        </pattern>
+      </defs>
+      <g transform="skewX(-30) skewY(2)">
+      <text x="21" y="87"><tspan x="101" y="101"
+      fill="#7E3517" fill-opacity=".5">{{text}}</tspan></text>
+      <text x="22" y="87"><tspan x="102" y="102"
+      fill="#333333" fill-opacity=".5">{{text}}</tspan></text>
+      <text x="23" y="87"><tspan x="103" y="103"
+      fill="#7E3517" fill-opacity=".5">{{text}}</tspan></text>
+      <text x="24" y="87"><tspan x="104" y="104"
+      fill="#333333" fill-opacity=".5">{{text}}</tspan></text>
+      <text x="25" y="87"><tspan x="105" y="105"
+      fill="#7E3517" fill-opacity=".5">{{text}}</tspan></text>
+      <text x="26" y="87"><tspan x="106" y="106"
+      fill="#333333" fill-opacity=".5">{{text}}</tspan></text>
+
+      <text x="27" y="87"><tspan x="107" y="107"
+      fill="#7E3517" fill-opacity=".5">{{text}}</tspan></text>
+
+      <text x="{{left}}" y="{{top}}"><tspan x="100" y="100"
+        fill="url(#p2)" >{{text}}</tspan></text>
+      </g>
+    </svg>

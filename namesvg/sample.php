@@ -1,14 +1,14 @@
 <?php
 
 function getParam($paramName, $defaultVal) {
-	return (ISSET($_REQUEST[$paramName]) && strlen($_REQUEST[$paramName]) > 0) ? $_REQUEST[$paramName] : $defaultVal;
+  return (ISSET($_REQUEST[$paramName]) && strlen($_REQUEST[$paramName]) > 0) ? $_REQUEST[$paramName] : $defaultVal;
 }
 
 $font = getParam("font","Arial");
 $spacing = getParam("spacing","0");
 $text = getParam("text","No text supplied");
 
-$svg = file_get_contents('template.svg');
+$svg = file_get_contents('sample.svg');
 $svg = str_replace("{{font}}",getParam("font","Arial"),$svg);
 $svg = str_replace("{{spacing}}",getParam("spacing","0"),$svg);
 $svg = str_replace("{{text}}",getParam("text","Sample"),$svg);
@@ -16,6 +16,8 @@ $svg = str_replace("{{stroke}}",getParam("stroke","0"),$svg);
 $svg = str_replace("{{fontSize}}",getParam("size","120"),$svg);
 $svg = str_replace("{{top}}",getParam("t","100"),$svg);
 $svg = str_replace("{{left}}",getParam("l","45"),$svg);
+
+
 
 //write file
 $id = uniqid();
