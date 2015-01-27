@@ -3,7 +3,7 @@
       font-family: "{{font}}", serif;
       font-size: {{fontSize}}px;
       fill: #493D26;
-      opacity:.75
+      opacity:.75;
       letter-spacing: {{spacing}}px;
       text-anchor: start;
       stroke:#7F5217;
