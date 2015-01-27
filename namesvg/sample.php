@@ -25,8 +25,8 @@ $tempSvg = "/tmp/" . $id . ".svg";
 $tempPng = "/tmp/" . $id . ".png";
 file_put_contents($tempSvg, $svg, LOCK_EX);
 
-#$svgConvert = "java -Djava.awt.headless=true -jar /home/ubuntu/batik-1.7/batik-rasterizer.jar -dpi 100 -w 600 -h 175 " . $tempSvg;
-$svgConvert = "java -Djava.awt.headless=true -jar /usr/local/Cellar/batik/1.7/libexec/batik-rasterizer.jar -dpi 100 -w 600 -h 175 " . $tempSvg;
+$svgConvert = "java -Djava.awt.headless=true -jar /home/ubuntu/batik-1.7/batik-rasterizer.jar -dpi 100 -w 600 -h 175 " . $tempSvg;
+#$svgConvert = "java -Djava.awt.headless=true -jar /usr/local/Cellar/batik/1.7/libexec/batik-rasterizer.jar -dpi 100 -w 600 -h 175 " . $tempSvg;
 
 exec($svgConvert);
 $png = file_get_contents($tempPng);
